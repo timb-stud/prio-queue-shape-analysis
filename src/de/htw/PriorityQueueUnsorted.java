@@ -62,7 +62,14 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 				pre = current;
 				current = current.next;
 			}
-			QueueElement dequeueElm = preDequeueElm.next;
+			
+			QueueElement dequeueElm;
+			if(preDequeueElm.priority == maxPrio){
+				dequeueElm = head;
+				head = dequeueElm.next;
+			}else
+				dequeueElm = preDequeueElm.next;
+			
 			if(dequeueElm.next != null){
 				preDequeueElm.next = dequeueElm.next;
 				dequeueElm.next = null;
@@ -88,7 +95,9 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 		while (currentD != null){
 			if (currentD.data == data){
 				QueueElement dequeueElm = currentD;
-				if (dequeueElm.next != null){
+				if(preD.data == data){ //first element has same data
+					head = preD.next;
+				} else if (dequeueElm.next != null){
 					preD.next = dequeueElm.next;
 					dequeueElm.next = null;
 				} else {
@@ -117,7 +126,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	}
 	
 	public String toString(){
-		String output = "{prio,data}-->";
+		String output = "{prio,data}\n";
 		QueueElement current = head;
 		
 		if(head == null)
