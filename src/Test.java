@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 import de.htw.PrioQueueSorted;
-import de.htw.PriorityQueue;
+import de.htw.PriorityQueueUnsorted;
 
 
 public class Test {
@@ -19,7 +19,7 @@ public class Test {
 	
 	@org.junit.Test
 	public void enQueueDeQueue(){
-		PriorityQueue pq = new PriorityQueue();
+		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
 		pq.enqueue(1, 1);
 		pq.enqueue(5, 5);
 		pq.enqueue(3, 3);

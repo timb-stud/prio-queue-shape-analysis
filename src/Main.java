@@ -1,5 +1,5 @@
 import de.htw.PrioQueueSorted;
-import de.htw.PriorityQueue;
+import de.htw.PriorityQueueUnsorted;
 
 
 public class Main {
@@ -12,7 +12,7 @@ public class Main {
 		System.out.println(pqs.enqueue(3, 3));
 		System.out.println(pqs.toString());
 		
-		PriorityQueue pq = new PriorityQueue();
+		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
 		System.out.println(pq.enqueue(2, 2));
 		System.out.println(pq.enqueue(1, 1));
 		System.out.println(pq.enqueue(3, 3));

@@ -2,7 +2,7 @@ package de.htw;
 /**
   * Eine einfache Vorrangwarteschlange; intern basierend auf einer doppeltverketten Liste.
   */
-public class PriorityQueue implements IPriorityQueue {
+public class PriorityQueueUnsorted implements IPriorityQueue {
 
 	/**
 	  * Referenz auf das erste Element der Queue bzw. null, falls die
@@ -10,7 +10,7 @@ public class PriorityQueue implements IPriorityQueue {
 	  */
 	protected QueueElement head;
 
-	public PriorityQueue() {
+	public PriorityQueueUnsorted() {
 		this.head = null;
 	}
 	
