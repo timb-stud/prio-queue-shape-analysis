@@ -8,4 +8,9 @@ public class QueueElement {
 		this.data		= data;
 		this.priority	= priority;
 	}
+	
+	@Override
+	public String toString() {
+		return "{d: " + data + ", p: " + priority + "}";
+	}
 }

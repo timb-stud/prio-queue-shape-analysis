@@ -42,42 +42,58 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			return false;
 		
 		QueueElement qe = new QueueElement( data, priority );
+		QueueElement delElement;
+		
+		//Insert into empty list
 		if(head == null){
 			head = qe;
 			return true;
-		}
-		
-		//if list contains element with the same data, the priority must be updated
-		QueueElement preD = head;
-		QueueElement currentD = head;
-		while (currentD != null){
-			if (currentD.data == data){
-				QueueElement dequeueElm = currentD;
-				if (dequeueElm.next != null){
-					preD.next = dequeueElm.next;
-					dequeueElm.next = null;
+		} 
+		//Insert after head
+		if(head.next == null){
+			if(head.data == data){
+				head.priority = priority;
+			} else {
+				if(head.priority > priority){
+					qe.next = head;
+					head = qe;
 				} else {
-					preD.next = null;
+					head.next = qe;
 				}
 			}
-			preD = currentD;
-			currentD = currentD.next;
+			return true;
+		}
+		if(priority < head.priority){
+			qe.next = head;
+			head = qe;
+			return true;
+		}
+		//Override head data
+		if(head.data == data){	
+			delElement = head;
+			head = delElement.next;
+			delElement.next = null;
 		}
 		
 		QueueElement pre = head;
-		QueueElement current = head;
-		while (current != null){
-			if (current.priority < priority){
-				pre = current;
-				current = current.next;
-			} else {
-				current = null; //loop exit
+		QueueElement current = head.next;
+		while (current != null) {
+			if (current.data == data){
+				pre.next = current.next;
+				current.next = null;
 			}
+			if(priority < current.priority){
+				qe.next = current;
+				pre.next = qe;
+			}
+			pre = current;
+			current = current.next;
 		}
-		if(pre.next != null){
-			qe.next = pre.next;
+		
+		//Insert beyond tail
+		if (priority > pre.priority){
+			pre.next = qe;
 		}
-		pre.next = qe;
 		
 		return true;
 	}
@@ -88,10 +104,10 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	}
 	
 	public String toString(){
-		String output = "{prio,data}-->";
+		String output = "";
 		QueueElement current = head;
 		while (current != null){
-			output += "{" + current.priority + ", " + current.data + "}-->";
+			output += current.toString() + "-->";
 			current = current.next;
 		}
 		return output;

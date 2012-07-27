@@ -90,28 +90,18 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 			return false;
 		
 		//if list contains element with the same data, the priority must be updated
-		QueueElement preD = head;
-		QueueElement currentD = head;
-		while (currentD != null){
-			if (currentD.data == data){
-				QueueElement dequeueElm = currentD;
-				if(preD.data == data){ //first element has same data
-					head = preD.next;
-				} else if (dequeueElm.next != null){
-					preD.next = dequeueElm.next;
-					dequeueElm.next = null;
-				} else {
-					preD.next = null;
-				}
+		QueueElement current = head;
+		while (current != null){
+			if (current.data == data){
+				current.priority = priority;
+				return true;
 			}
-			preD = currentD;
-			currentD = currentD.next;
+			current = current.next;
 		}
 		
-		QueueElement qe = new QueueElement(data, priority);
-		QueueElement current = head;
-		head = qe;
-		qe.next = current;
+		QueueElement second = head;
+		head = new QueueElement(data, priority);
+		head.next = second;
 		
 		return true;
 	}
@@ -126,14 +116,10 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	}
 	
 	public String toString(){
-		String output = "{prio,data}\n";
+		String output = "";
 		QueueElement current = head;
-		
-		if(head == null)
-			System.out.println("head is null!");
-		
 		while (current != null){
-			output += "{" + current.priority + ", " + current.data + "}-->";
+			output += current.toString() + "-->";
 			current = current.next;
 		}
 		return output;
