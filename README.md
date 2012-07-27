@@ -2,15 +2,14 @@ A priority queue Shape Analysis with tvla
 ==========================================
 ## Installation
 ### Java Files
-1. Eclipse import
-1.1 Open Eclipse
-1.2 File -> Import
-1.3 Existing Projects into Workspace
-1.4 Click Next
-1.5 Select root directory: prio-queue-shape-analysis
-1.6 Select Project PriorityQueue
-1.7 Uncheck: Copy projects into workspace
-1.8 Click Finish
+1. Open Eclipse
+2. File -> Import
+3. Existing Projects into Workspace
+4. Click Next
+5. Select root directory: prio-queue-shape-analysis
+6. Select Project PriorityQueue
+7. Uncheck: Copy projects into workspace
+8. Click Finish
 
 ### J2TVLA
 Copy config/j2tvla/j2tvla and config/j2tvla/defaultTemplates.properties to your tvla root directory.
