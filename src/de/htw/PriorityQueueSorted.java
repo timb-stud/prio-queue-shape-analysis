@@ -81,6 +81,56 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		
 		return true;
 	}
+	
+	public boolean enqueue2( int data, int priority ) {
+		if (data <= 0)
+			return false;
+		
+		QueueElement qe = new QueueElement( data, priority );
+		if(head == null){
+			head = qe;
+			return true;
+		}
+		
+		QueueElement pre = null;
+		QueueElement current = head;
+		boolean added = false;
+		while(current != null){
+			//remove current
+			if(current.data == data){
+				if (pre != null){
+					pre.next = current.next;
+				} else {
+					head = current.next;
+				}
+				current = current.next;
+				continue;
+			}
+			//add before current
+			if(!added && priority < current.priority){
+				QueueElement newNode = new QueueElement(data, priority);
+				if(pre != null){
+					pre.next = newNode;
+					newNode.next = current;
+				} else {
+					head = newNode;
+					head.next = current;
+				}
+				added = true;
+			}
+			pre = current;
+			current = current.next;
+		}
+		
+		//add as last element
+		if(!added){
+			QueueElement newNode = new QueueElement(data, priority);
+			pre.next = newNode;
+			added = true;
+		}
+		//System.out.println(this);
+		return added;
+	}
 
 	@Override
 	public boolean isEmpty() {

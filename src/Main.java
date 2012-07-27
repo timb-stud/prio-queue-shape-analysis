@@ -1,5 +1,4 @@
 import de.htw.PriorityQueueSorted;
-import de.htw.PriorityQueueUnsorted;
 
 
 public class Main {
@@ -12,20 +11,22 @@ public class Main {
 //		System.out.println(pqs.enqueue(3, 3));
 //		System.out.println(pqs.toString());
 		
-		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
-		System.out.println("Element added: " + pq.enqueue(2, 2));
-		System.out.println("Element added: " + pq.enqueue(1, 1));
-		System.out.println("Element added: " + pq.enqueue(3, 3));
+		//PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
+		PriorityQueueSorted pq = new PriorityQueueSorted();
+
+		System.out.println("Element added: " + pq.enqueue2(2, 2));
+		System.out.println("Element added: " + pq.enqueue2(1, 1));
+		System.out.println("Element added: " + pq.enqueue2(3, 3));
 		//System.out.println(pq.enqueue(6, 6));
-		System.out.println("Element added: " + pq.enqueue(5, 5));
-		System.out.println("Element added: " + pq.enqueue(4, 4));
+		System.out.println("Element added: " + pq.enqueue2(5, 5));
+		System.out.println("Element added: " + pq.enqueue2(4, 4));
 		System.out.println(pq.toString());
 		System.out.println("peek: " + pq.peek());
 		System.out.println("dequeue: " + pq.dequeue());
 		System.out.println(pq.toString());
 		System.out.println("dequeue: " + pq.dequeue());
 		System.out.println(pq.toString());
-		System.out.println("Element added: " + pq.enqueue(3, 2));
+		System.out.println("Element added: " + pq.enqueue2(3, 2));
 		System.out.println(pq.toString());
 		System.out.println("peek: " + pq.peek());
 	}
