@@ -12,7 +12,7 @@ public class Main {
 //		System.out.println(pqs.enqueue(3, 3));
 //		System.out.println(pqs.toString());
 		
-		PriorityQueue pq = new PriorityQueue();
+		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
 		System.out.println("Element added: " + pq.enqueue(2, 2));
 		System.out.println("Element added: " + pq.enqueue(1, 1));
 		System.out.println("Element added: " + pq.enqueue(3, 3));
