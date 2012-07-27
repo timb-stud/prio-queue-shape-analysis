@@ -1,1 +1,1 @@
-Copy defaultTemplates.properties to your j2tvla folder.
+Copy defaultTemplates.properties and j2tvla to your j2tvla folder.
