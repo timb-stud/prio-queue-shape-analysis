@@ -12,6 +12,6 @@ A priority queue Shape Analysis with tvla
 8. Click Finish
 
 ### J2TVLA
-Copy config/j2tvla/j2tvla and config/j2tvla/defaultTemplates.properties to your tvla root directory.
+Copy config/j2tvla/j2tvla and config/j2tvla/defaultTemplates.properties to your j2tvla root directory.
 
-Don't forget to copy these files again to your tvla root if they get changed.
+Don't forget to copy these files again to your j2tvla root if they get changed.
