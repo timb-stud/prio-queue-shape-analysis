@@ -1,6 +1,6 @@
 package de.htw;
 
-public class PrioQueueSorted implements IPriorityQueue {
+public class PriorityQueueSorted implements IPriorityQueue {
 
 	/**
 	  * Referenz auf das erste Element der Queue bzw. null, falls die
@@ -8,7 +8,7 @@ public class PrioQueueSorted implements IPriorityQueue {
 	  */
 	protected QueueElement head;
 
-	public PrioQueueSorted() {
+	public PriorityQueueSorted() {
 		this.head = null;
 	}
 	
