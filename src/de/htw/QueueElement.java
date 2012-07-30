@@ -1,8 +1,8 @@
 package de.htw;
 public class QueueElement {
-	QueueElement	next;
-	int				data;
-	int				priority;
+	public QueueElement	next;
+	public int data;
+	public int priority;
 	
 	public QueueElement( int data, int priority ){
 		this.data		= data;
@@ -12,5 +12,14 @@ public class QueueElement {
 	@Override
 	public String toString() {
 		return "{d: " + data + ", p: " + priority + "}";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof QueueElement){
+			QueueElement element = (QueueElement)obj;
+			return this.data == element.data && this.priority == element.priority;
+		}
+		return false;
 	}
 }

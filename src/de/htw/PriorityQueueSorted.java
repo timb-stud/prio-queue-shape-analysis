@@ -6,7 +6,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	  * Referenz auf das erste Element der Queue bzw. null, falls die
 	  * Queue keine Elemente enthaelt, d.h. leer ist.
 	  */
-	protected QueueElement head;
+	public QueueElement head;
 
 	public PriorityQueueSorted() {
 		this.head = null;
@@ -63,6 +63,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			}
 			return true;
 		}
+		//Insert before head
 		if(priority < head.priority){
 			qe.next = head;
 			head = qe;
