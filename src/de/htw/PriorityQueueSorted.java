@@ -3,15 +3,15 @@ package de.htw;
 public class PriorityQueueSorted implements IPriorityQueue {
 
 	/**
-	  * Referenz auf das erste Element der Queue bzw. null, falls die
-	  * Queue keine Elemente enthaelt, d.h. leer ist.
-	  */
+	 * Referenz auf das erste Element der Queue bzw. null, falls die Queue keine
+	 * Elemente enthaelt, d.h. leer ist.
+	 */
 	public QueueElement head;
 
 	public PriorityQueueSorted() {
 		this.head = null;
 	}
-	
+
 	@Override
 	public int peek() {
 		if (head == null)
@@ -24,7 +24,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		if (head == null)
 			return 0;
 		QueueElement dequeueElm = head;
-		if (dequeueElm.next != null){
+		if (dequeueElm.next != null) {
 			head = dequeueElm.next;
 			dequeueElm.next = null;
 		} else {
@@ -33,28 +33,30 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		return dequeueElm.data;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.htw.IPriorityQueue#enqueue(int, int)
 	 */
 	@Override
-	public boolean enqueue( int data, int priority ) {
+	public boolean enqueue(int data, int priority) {
 		if (data <= 0)
 			return false;
-		
-		QueueElement qe = new QueueElement( data, priority );
+
+		QueueElement qe = new QueueElement(data, priority);
 		QueueElement delElement;
-		
-		//Insert into empty list
-		if(head == null){
+
+		// Insert into empty list
+		if (head == null) {
 			head = qe;
 			return true;
-		} 
-		//Insert after head
-		if(head.next == null){
-			if(head.data == data){
+		}
+		// Insert after head
+		if (head.next == null) {
+			if (head.data == data) {
 				head.priority = priority;
 			} else {
-				if(head.priority > priority){
+				if (head.priority > priority) {
 					qe.next = head;
 					head = qe;
 				} else {
@@ -63,42 +65,42 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			}
 			return true;
 		}
-		//Insert before head
-		if(priority < head.priority){
+		// Insert before head
+		if (priority < head.priority) {
 			qe.next = head;
 			head = qe;
 			return true;
 		}
-		//Override head data
-		if(head.data == data){	
+		// Override head data
+		if (head.data == data) {
 			delElement = head;
 			head = delElement.next;
 			delElement.next = null;
 		}
-		
+
 		QueueElement pre = head;
 		QueueElement current = head.next;
 		while (current != null) {
-			if (current.data == data){
+			if (current.data == data) {
 				pre.next = current.next;
 				current.next = null;
 			}
-			if(priority < current.priority){
+			if (priority < current.priority) {
 				qe.next = current;
 				pre.next = qe;
 			}
 			pre = current;
 			current = current.next;
 		}
-		
-		//Insert beyond tail
-		if (priority > pre.priority){
+
+		// Insert beyond tail
+		if (priority > pre.priority) {
 			pre.next = qe;
 		}
-		
+
 		return true;
 	}
-	
+
 	public boolean enqueueGilles(int data, int priority) {
 		if (data <= 0)
 			return false;
@@ -161,7 +163,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 		return true;
 	}
-	
+
 	public boolean enqueueGilles2(int data, int priority) {
 		if (data <= 0)
 			return false;
@@ -173,32 +175,33 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			head = newNode;
 			return true;
 		}
-		
-		//queue has only one node, add before or after that one node
-		if(head.next == null){
-			if(head.data == data){
+
+		// queue has only one node, update or add, before or after, the one node
+		if (head.next == null) {
+			if (head.data == data) {
 				head.priority = priority;
-			} else if(head.priority < priority){
+			} else if (head.priority < priority) {
 				head.next = newNode;
 			} else {
 				newNode.next = head;
-				head = newNode; 
+				head = newNode;
 			}
 			return true;
 		}
-		
-		if(head.data == data){
+
+		// check if the head has to be removed
+		if (head.data == data) {
 			head = head.next;
 		}
-		
+
+		// does the new node has to become the new head
 		boolean alreadyAdded = false;
-		if(head.priority > priority){
+		if (head.priority > priority) {
 			QueueElement oldHead = head;
 			head = newNode;
 			head.next = oldHead;
 			alreadyAdded = true;
 		}
-
 
 		// this is our general case, iterates completely over the entire queue
 		// remove the node with the same value as the argument data, because a
@@ -207,15 +210,10 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		// the argument priority
 		QueueElement pre = head;
 		QueueElement current = head.next;
-		
+
 		while (current != null) {
 			if (current.data == data) { // remove current node
-				//if (pre != null) {
-					pre.next = current.next;
-				//} else { // current node is the head of the queue
-				//	head = current.next;
-				//}
-
+				pre.next = current.next;
 				current = current.next; // switch to next node, and try again
 				// pre stays the same as it points now to the new current node
 				continue;
@@ -223,13 +221,8 @@ public class PriorityQueueSorted implements IPriorityQueue {
 
 			if (!alreadyAdded && priority < current.priority) {
 				// add before current node, as the priority has become too worse
-				//if (pre != null) { // add the new node between two nodes
-					pre.next = newNode;
-					newNode.next = current;
-				//} else { // current node is the head of the queue
-					//head = newNode;
-					//head.next = current;
-				//}
+				pre.next = newNode;
+				newNode.next = current;
 				alreadyAdded = true; // make sure that the new node is only
 										// added once
 			}
@@ -241,12 +234,8 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		// because no other place in the queue has been found, which fits for
 		// the new node
 		// pre is the tail of the queue
-		if (!alreadyAdded) { // element was not yet added
-			if (pre != null) { // queue is not empty
-				pre.next = newNode;
-			} else { // queue is empty
-				head = newNode;
-			}
+		if (!alreadyAdded) {
+			pre.next = newNode;
 		}
 		return true;
 	}
@@ -255,11 +244,11 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	public boolean isEmpty() {
 		return this.head == null;
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		String output = "";
 		QueueElement current = head;
-		while (current != null){
+		while (current != null) {
 			output += current.toString() + "-->";
 			current = current.next;
 		}
