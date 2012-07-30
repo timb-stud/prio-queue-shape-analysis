@@ -25,7 +25,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 			result = head.data;
 			QueueElement current = head;
 			while (current != null){
-				if (current.priority > maxPrio){
+				if (current.priority < maxPrio){
 					maxPrio = current.priority;
 					result = current.data;
 				}
@@ -54,7 +54,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 			int maxPrio = head.priority;
 			QueueElement current = head;
 			while (current != null){
-				if(current.priority > maxPrio){
+				if(current.priority < maxPrio){
 					maxPrio = current.priority;
 					result = current.data;
 					preDequeueElm = pre;
