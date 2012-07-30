@@ -1,0 +1,56 @@
+///////
+// Sets
+
+%s PVar {$r1, $this, r0, r1}
+
+#include "predicates.tvp"
+
+%%
+
+#include "actions.tvp"
+
+%%
+
+////////////////////////////////////////////////////////////////////////////
+// isEmpty()
+// Did skip this.head. How to solve this?
+
+// line _unknown_ : r0 := $this: de.htw.PriorityQueueUnsorted (AssignRefToRefStmt)
+//L_lx_g130 Copy_Var_L(r0, $this) L_l115_g131
+L_lx_g130 Copy_Var_L(r0, $this) L_l115_g132 
+
+
+// line 115 : $r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
+//L_l115_g131 Get_Next_L($r1, r0) L_l115_g132
+
+// line 115 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l115_g132 Set_Null_L(r0) L_l115_g133
+
+// line 115 : if $r1 != null goto $return = 0 [J2TVLA callee return assignment] (IfEqualToNullStmt)
+L_l115_g133 Is_Null_Var($r1) L_l115_g134
+L_l115_g133 Is_Not_Null_Var($r1) L_l115_g137
+
+// line 115 : $r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l115_g134 Set_Null_L($r1) L_l115_g135
+
+
+// line 115 : $return = 1 [J2TVLA callee return assignment] (AssignStmt)
+L_l115_g135 Skip() L_l115_g136
+
+// line 115 : return 1 (ReturnStmt)
+L_l115_g136 Skip() L_l115_i1_g149
+L_l115_i1_g149 Skip() exit_true
+
+
+// line 115 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
+L_l115_g137 Skip() L_l115_g138
+
+// line 115 : return 0 (ReturnStmt)
+L_l115_g138 Skip() L_l115_i1_g155
+L_l115_i1_g155 Skip() exit_false
+
+exit_true Skip() exit
+exit_false Skip() exit
+
+exit Assert_ListInvariants($r1) error
+exit Assert_No_Leak($r1)        error
