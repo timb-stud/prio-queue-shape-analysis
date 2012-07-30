@@ -98,6 +98,69 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		
 		return true;
 	}
+	
+	public boolean enqueueGilles(int data, int priority) {
+		if (data <= 0)
+			return false;
+
+		QueueElement newNode = new QueueElement(data, priority);
+
+		// Insert into empty list
+		if (head == null) {
+			head = newNode;
+			return true;
+		}
+
+		// this is our general case, iterates completely over the entire queue
+		// remove the node with the same value as the argument data, because a
+		// value is only allowed once in the queue
+		// add a new node before the first node, which has a worse priority as
+		// the argument priority
+		QueueElement pre = null;
+		QueueElement current = head;
+		boolean alreadyAdded = false;
+		while (current != null) {
+			if (current.data == data) { // remove current node
+				if (pre != null) {
+					pre.next = current.next;
+				} else { // current node is the head of the queue
+					head = current.next;
+				}
+
+				current = current.next; // switch to next node, and try again
+				// pre stays the same as it points now to the new current node
+				continue;
+			}
+
+			if (!alreadyAdded && priority < current.priority) {
+				// add before current node, as the priority has become too worse
+				if (pre != null) { // add the new node between two nodes
+					pre.next = newNode;
+					newNode.next = current;
+				} else { // current node is the head of the queue
+					head = newNode;
+					head.next = current;
+				}
+				alreadyAdded = true; // make sure that the new node is only
+										// added once
+			}
+			pre = current;
+			current = current.next;
+		}
+
+		// if no node was added to the queue, add it as last element
+		// because no other place in the queue has been found, which fits for
+		// the new node
+		// pre is the tail of the queue
+		if (!alreadyAdded) { // element was not yet added
+			if (pre != null) { // queue is not empty
+				pre.next = newNode;
+			} else { // queue is empty
+				head = newNode;
+			}
+		}
+		return true;
+	}
 
 	@Override
 	public boolean isEmpty() {
