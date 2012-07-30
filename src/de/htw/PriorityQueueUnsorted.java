@@ -85,7 +85,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 * @see de.htw.IPriorityQueue#enqueue(int, int)
 	 */
 	@Override
-	public boolean enqueue( int data, int priority ) {
+	public boolean enqueueGilles( int data, int priority ) {
 		if (data <= 0)
 			return false;
 		

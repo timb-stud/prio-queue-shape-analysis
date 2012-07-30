@@ -59,7 +59,7 @@ public interface IPriorityQueue {
 	 * können bei Methodenabarbeitung keine Nullzeigerdereferenzierungen
 	 * auftreten.
 	 */
-	public abstract boolean enqueue(int data, int priority);
+	public abstract boolean enqueueGilles(int data, int priority);
 
 	/**
 	 * Liefert true zurueck, falls die Queue leer ist, d.h. keine

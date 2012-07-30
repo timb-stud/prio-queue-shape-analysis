@@ -38,53 +38,53 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	 * 
 	 * @see de.htw.IPriorityQueue#enqueue(int, int)
 	 */
+//	@Override
+//	public boolean enqueue(int data, int priority) {
+//		if (data <= 0)
+//			return false;
+//
+//		QueueElement qe = new QueueElement(data, priority);
+//		if (head == null) {
+//			head = qe;
+//			return true;
+//		}
+//
+//		// if list contains element with the same data, the priority must be
+//		// updated
+//		QueueElement preD = head;
+//		QueueElement currentD = head;
+//		while (currentD != null) {
+//			if (currentD.data == data) {
+//				QueueElement dequeueElm = currentD;
+//				if (dequeueElm.next != null) {
+//					preD.next = dequeueElm.next;
+//					dequeueElm.next = null;
+//				} else {
+//					preD.next = null;
+//				}
+//			}
+//			preD = currentD;
+//			currentD = currentD.next;
+//		}
+//
+//		QueueElement pre = head;
+//		QueueElement current = head;
+//		while (current != null) {
+//			if (current.priority < priority) {
+//				pre = current;
+//				current = current.next;
+//			} else {
+//				current = null; // loop exit
+//			}
+//		}
+//		if (pre.next != null) {
+//			qe.next = pre.next;
+//		}
+//		pre.next = qe;
+//
+//		return true;
+//	}
 	@Override
-	public boolean enqueue(int data, int priority) {
-		if (data <= 0)
-			return false;
-
-		QueueElement qe = new QueueElement(data, priority);
-		if (head == null) {
-			head = qe;
-			return true;
-		}
-
-		// if list contains element with the same data, the priority must be
-		// updated
-		QueueElement preD = head;
-		QueueElement currentD = head;
-		while (currentD != null) {
-			if (currentD.data == data) {
-				QueueElement dequeueElm = currentD;
-				if (dequeueElm.next != null) {
-					preD.next = dequeueElm.next;
-					dequeueElm.next = null;
-				} else {
-					preD.next = null;
-				}
-			}
-			preD = currentD;
-			currentD = currentD.next;
-		}
-
-		QueueElement pre = head;
-		QueueElement current = head;
-		while (current != null) {
-			if (current.priority < priority) {
-				pre = current;
-				current = current.next;
-			} else {
-				current = null; // loop exit
-			}
-		}
-		if (pre.next != null) {
-			qe.next = pre.next;
-		}
-		pre.next = qe;
-
-		return true;
-	}
-
 	public boolean enqueueGilles(int data, int priority) {
 		if (data <= 0)
 			return false;

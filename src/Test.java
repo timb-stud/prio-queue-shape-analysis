@@ -58,9 +58,9 @@ public class Test {
 	@org.junit.Test
 	public void enQueueDeQueue(){
 		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
-		pq.enqueue(1, 1);
-		pq.enqueue(5, 5);
-		pq.enqueue(3, 3);
+		pq.enqueueGilles(1, 1);
+		pq.enqueueGilles(5, 5);
+		pq.enqueueGilles(3, 3);
 		
 		int output = pq.peek();
 		assertEquals(5, output);
