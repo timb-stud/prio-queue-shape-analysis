@@ -65,7 +65,7 @@
 }
 
 
-%action Get_Head(lhs, rhs) {
+%action Get_head(lhs, rhs) {
 	%t lhs + " = " + rhs + "->" + "head"
 	%f {rhs(v), lhs(v)}
 	{
