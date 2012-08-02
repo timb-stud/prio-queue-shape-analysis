@@ -39,6 +39,21 @@
   }
 }
 
+%action New(lhs) {
+  %t lhs + " = new QueueElement() "
+  %new
+  {
+    lhs(v) = isNew(v)
+    t[n](v_1, v_2) = (isNew(v_1) ? v_1 == v_2 : t[n](v_1, v_2))
+    r[n, lhs](v) = isNew(v)
+    foreach(z in PVar-{lhs}) {
+      r[n,z](v) = r[n,z](v)
+    }
+    is[n](v) = is[n](v)
+  }
+}
+
+
 %action Free_L(lhs) {
   %t "free(" + lhs + ")"
   %f { lhs(v) }
@@ -95,11 +110,11 @@
        // optimized change-formula for t[n] update-formula
        //E(v_1, v_2) lhs(v_1) & n(v_1, v_2) & t[n](v_2, v)   
      }
-  %message (!E(v) lhs(v)) -> "Illegal dereference to\n" +
-                             head  + " component of " + lhs
+  //%message (!E(v) lhs(v)) -> "Illegal dereference to\n" +
+   //                          head  + " component of " + lhs
 
   {	
-	head(v) = head(v) & !lhs(v)
+	head(v) = 0
   }
 }
 
