@@ -103,7 +103,7 @@ L_l104_g70 Get_head($r4, r0) L_l104_g71
 L_l104_g71 Set_Null_L(r0) L_l104_g72
 
 // line 104 : $r4.<de.htw.QueueElement: de.htw.QueueElement next> = r2 (AssignRefToInstanceFieldRefStmt)
-L_l104_g72 Set_next_Null($r4) L_l104_i1_g116 //FEHLER!!!!
+L_l104_g72 Set_next_Null($r4) L_l104_i1_g116
 L_l104_i1_g116  Set_next($r4, r2) L_l104_g73
 
 // line 104 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
