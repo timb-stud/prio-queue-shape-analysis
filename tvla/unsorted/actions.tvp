@@ -65,11 +65,11 @@
 }
 
 
-%action Get_Head_L(lhs, rhs) {
+%action Get_Head(lhs, rhs) {
 	%t lhs + " = " + rhs + "->" + "head"
 	%f {rhs(v), lhs(v)}
 	{
-		lhs(v) = E(v_1) rhs(v_1) & head(v_1, v)
+		lhs(v) = head(v)
 	}
 }
 

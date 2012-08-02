@@ -1,7 +1,7 @@
 ///////
 // Sets
 
-%s PVar {$r1, $this, r0, r1}
+%s PVar {$r1, $this, r0, r1, head}
 
 #include "predicates.tvp"
 
@@ -16,12 +16,11 @@
 // Did skip this.head. How to solve this?
 
 // line _unknown_ : r0 := $this: de.htw.PriorityQueueUnsorted (AssignRefToRefStmt)
-//L_lx_g130 Copy_Var_L(r0, $this) L_l115_g131
-L_lx_g130 Copy_Var_L(r0, $this) L_l115_g132 
+L_lx_g130 Copy_Var_L(r0, $this) L_l115_g131
 
 
 // line 115 : $r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-//L_l115_g131 Get_Next_L($r1, r0) L_l115_g132
+L_l115_g131 Get_Head($r1, r0) L_l115_g132
 
 // line 115 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l115_g132 Set_Null_L(r0) L_l115_g133
