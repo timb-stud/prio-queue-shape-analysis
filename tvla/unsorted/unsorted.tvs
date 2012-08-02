@@ -3,18 +3,19 @@
 %p = {
        sm = {tail:1/2}
        n = {head->tail:1/2, tail->tail:1/2}
-       $r1 = {head}
+       head = {head}
        t[n] = {head->head, head->tail, tail->tail:1/2}
-       r[n,$r1] = {head, tail}
+       r[n,head] = {head, tail}
 }
 
 // An acyclic singly-linked list with a single element pointed by x.
 %n = {head}
 %p = {
-       $r1 = {head}
+       head = {head}
        t[n] = {head->head}
-       r[n,$r1] = {head}
+       r[n,head] = {head}
 }
+
 
 // An empty list (x points to NULL).
 %n = {}
