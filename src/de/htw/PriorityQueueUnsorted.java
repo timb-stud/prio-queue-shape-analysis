@@ -94,7 +94,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 		while (current != null){
 			if (current.data == data){
 				current.priority = priority;
-				return true;
+				return false;
 			}
 			current = current.next;
 		}
