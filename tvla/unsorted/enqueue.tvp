@@ -82,7 +82,9 @@ L_l103_g64 Skip() L_l103_g65
 L_l103_g65 Skip() L_l103_g66
 
 // line 103 : $this = $r3 [J2TVLA parameter assignment] [J2TVLA receiver parameter assignment] (AssignRefToRefStmt)
-L_l103_g66 Copy_Var_L($this, $r3) L_l103_g67
+//L_l103_g66 Copy_Var_L($this, $r3) L_l103_g67
+L_l103_g66 Skip() L_l103_g67
+
 
 // line 103 : specialinvoke $r3.<de.htw.QueueElement: void <init>(int,int)>(i0, i1) (InvokeStmt)
 L_l103_g67 Skip() L_l103_g68 
