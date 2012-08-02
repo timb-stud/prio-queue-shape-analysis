@@ -54,7 +54,7 @@
   %retain !lhs(v)
 }
 
-%action Get_Next_L(lhs, rhs) {
+%action Get_next(lhs, rhs) {
   %t lhs + " = " + rhs + "->" + n
   %f { E(v_1, v_2) rhs(v_1) & n(v_1, v_2) &  t[n](v_2, v) }
   %message (!E(v) rhs(v)) ->
@@ -73,7 +73,7 @@
 	}
 }
 
-%action Set_Next_Null_L(lhs) {
+%action Set_next_Null(lhs) {
   %t lhs + "->" + n + " = NULL"
   %f { 
        lhs(v),
@@ -88,7 +88,23 @@
   }
 }
 
-%action Set_Next_L(lhs, rhs) {
+%action Set_head_Null(lhs) {
+  %t lhs + "->head = NULL"
+  %f { 
+       lhs(v)
+       // optimized change-formula for t[n] update-formula
+       //E(v_1, v_2) lhs(v_1) & n(v_1, v_2) & t[n](v_2, v)   
+     }
+  %message (!E(v) lhs(v)) -> "Illegal dereference to\n" +
+                             head  + " component of " + lhs
+
+  {	
+	head(v) = head(v) & !lhs(v)
+  }
+}
+
+
+%action Set_next(lhs, rhs) {
   %t lhs + "->" + n + " = " + rhs
   %f {
        lhs(v), rhs(v),
@@ -103,6 +119,21 @@
     n(v_1, v_2) = n(v_1, v_2) | lhs(v_1) & rhs(v_2)
   }
 }
+
+%action Set_head(lhs, rhs) {
+  %t lhs + "->head = " + rhs
+  %f {
+       lhs(v), rhs(v)
+       // optimized change-formula for t[n] upate-formula
+       //E(v_4) rhs(v_4) & t[n](v_4, v_2)
+     }
+  %message (E(v) head(v)) ->
+           "Internal Error! " + lhs + "->head != NULL"
+  {
+	  head(v) = head(v) | rhs(v) //evtl head(v) entfernen
+  }
+}
+
 
 //////////////////////////////////////////////////////////////////
 // Actions needed to simulate program conditions involving pointer
