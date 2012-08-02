@@ -45,6 +45,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 
 		QueueElement qe = new QueueElement(data, priority);
 		QueueElement delElement;
+		boolean added = false;
 
 		// Insert into empty list
 		if (head == null) {
@@ -65,17 +66,19 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			}
 			return true;
 		}
-		// Insert before head
-		if (priority < head.priority) {
-			qe.next = head;
-			head = qe;
-			return true;
-		}
+		
 		// Override head data
 		if (head.data == data) {
 			delElement = head;
 			head = delElement.next;
 			delElement.next = null;
+		}
+		
+		// Insert before head
+		if (priority < head.priority) {
+			qe.next = head;
+			head = qe;
+			added = true;
 		}
 
 		QueueElement pre = head;
@@ -84,18 +87,20 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			if (current.data == data) {
 				pre.next = current.next;
 				current.next = null;
-			}
-			if (priority < current.priority) {
-				qe.next = current;
+			} else if ((priority < current.priority) && !added) {
 				pre.next = qe;
+				pre = pre.next;
+				qe.next = current;
+				added = true;
 			}
 			pre = current;
 			current = current.next;
 		}
-
+		
 		// Insert beyond tail
 		if (priority > pre.priority) {
 			pre.next = qe;
+			qe.next = null;
 		}
 
 		return true;
