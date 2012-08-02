@@ -50,6 +50,7 @@
       r[n,z](v) = r[n,z](v)
     }
     is[n](v) = is[n](v)
+    newElement(v) = isNew(v)
   }
 }
 

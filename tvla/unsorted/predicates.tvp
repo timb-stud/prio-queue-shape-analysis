@@ -38,6 +38,5 @@ foreach (z in PVar) {
 }
 
 
-// getHead
-
-//%p head(v) function acyclic
+//new predicates
+%p newElement(v)
