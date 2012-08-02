@@ -10,13 +10,13 @@ import de.htw.QueueElement;
 public class SortedTest extends Assert {
 
 	@Test
-	public void enqueueGilles2NegativeElement() {
+	public void enqueueGillesNegativeElement() {
 		PriorityQueueSorted pq = new PriorityQueueSorted();
-		assertFalse(pq.enqueueGilles2(-1, 4));
+		assertFalse(pq.enqueueGilles(-1, 4));
 	}
 
 	@Test
-	public void enqueueGilles2Elements1() {
+	public void enqueueGillesElements1() {
 		PriorityQueueSorted pq = new PriorityQueueSorted();
 		QueueElement qe1 = new QueueElement(1, 5);
 		QueueElement qe2 = new QueueElement(12, 10);
@@ -27,16 +27,17 @@ public class SortedTest extends Assert {
 		qe1.next = qe5;
 		qe5.next = qe2;
 		qe2.next = qe3;
-		assertTrue(pq.enqueueGilles2(qe1.data, qe1.priority));
-		assertTrue(pq.enqueueGilles2(qe2.data, qe2.priority));
-		assertTrue(pq.enqueueGilles2(qe3.data, qe3.priority));
-		assertTrue(pq.enqueueGilles2(qe4.data, qe4.priority));
-		assertTrue(pq.enqueueGilles2(qe5.data, qe5.priority));
+		assertTrue(pq.enqueueGilles(qe1.data, qe1.priority));
+		assertTrue(pq.enqueueGilles(qe2.data, qe2.priority));
+		assertTrue(pq.enqueueGilles(qe3.data, qe3.priority));
+		assertTrue(pq.enqueueGilles(qe4.data, qe4.priority));
+		assertTrue(pq.enqueueGilles(qe5.data, qe5.priority));
+		System.out.println(pq);
 		assertListEquals(qe4, pq.head);
 	}
 
 	@Test
-	public void enqueueGilles2Elements2() {
+	public void enqueueGillesElements2() {
 		PriorityQueueSorted pq = new PriorityQueueSorted();
 		QueueElement qe1 = new QueueElement(1, 5);
 		QueueElement qe2 = new QueueElement(3, 10);
@@ -45,15 +46,15 @@ public class SortedTest extends Assert {
 		qe4.next = qe1;
 		qe1.next = qe2;
 		qe2.next = qe3;
-		assertTrue(pq.enqueueGilles2(qe1.data, qe1.priority));
-		assertTrue(pq.enqueueGilles2(qe2.data, qe2.priority));
-		assertTrue(pq.enqueueGilles2(qe3.data, qe3.priority));
-		assertTrue(pq.enqueueGilles2(qe4.data, qe4.priority));
+		assertTrue(pq.enqueueGilles(qe1.data, qe1.priority));
+		assertTrue(pq.enqueueGilles(qe2.data, qe2.priority));
+		assertTrue(pq.enqueueGilles(qe3.data, qe3.priority));
+		assertTrue(pq.enqueueGilles(qe4.data, qe4.priority));
 		assertListEquals(qe4, pq.head);
 	}
 	
 	@Test
-	public void enqueueGilles2Elements2update() {
+	public void enqueueGillesElements2update() {
 		PriorityQueueSorted pq = new PriorityQueueSorted();
 		QueueElement qe1 = new QueueElement(1, 5);
 		QueueElement qe2 = new QueueElement(3, 10);
@@ -63,24 +64,24 @@ public class SortedTest extends Assert {
 		qe5.next = qe3;
 		qe3.next = qe2;
 		//qe2.next = qe3;
-		assertTrue(pq.enqueueGilles2(qe1.data, qe1.priority));
-		assertTrue(pq.enqueueGilles2(qe2.data, qe2.priority));
-		assertTrue(pq.enqueueGilles2(qe3.data, qe3.priority));
-		assertTrue(pq.enqueueGilles2(qe4.data, qe4.priority));
-		assertTrue(pq.enqueueGilles2(qe5.data, qe5.priority));
-		System.out.println(pq);
+		assertTrue(pq.enqueueGilles(qe1.data, qe1.priority));
+		assertTrue(pq.enqueueGilles(qe2.data, qe2.priority));
+		assertTrue(pq.enqueueGilles(qe3.data, qe3.priority));
+		assertTrue(pq.enqueueGilles(qe4.data, qe4.priority));
+		assertTrue(pq.enqueueGilles(qe5.data, qe5.priority));
+
 		assertListEquals(qe5, pq.head);
 	}
 
 	@Test
-	public void enqueueGilles2Sorted_addOneElement_updatePriority() {
+	public void enqueueGillesSorted_addOneElement_updatePriority() {
 		PriorityQueueSorted pq = new PriorityQueueSorted();
 		QueueElement qe1 = new QueueElement(1, 1);
 		QueueElement qe2 = new QueueElement(1, 2);
 		//qe2 must be the only node in the queue
 		
-		assertTrue(pq.enqueueGilles2(qe1.data, qe1.priority));
-		assertTrue(pq.enqueueGilles2(qe2.data, qe2.priority));
+		assertTrue(pq.enqueueGilles(qe1.data, qe1.priority));
+		assertTrue(pq.enqueueGilles(qe2.data, qe2.priority));
 		assertEquals(qe2, pq.head);
 	}
 

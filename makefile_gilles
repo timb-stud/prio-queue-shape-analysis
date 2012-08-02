@@ -1,0 +1,7 @@
+j2tvla-all: j2tvla-sorted j2tvla-unsorted
+
+j2tvla-sorted: bin/J2tvlaSorted.class
+	cd bin; /home/me/git/prio-queue-shape-analysis/config/j2tvla/j2tvla_gilles J2tvlaSorted
+
+j2tvla-unsorted: bin/J2tvlaUnsorted.class
+	cd bin;/home/me/git/prio-queue-shape-analysis/config/j2tvla/j2tvla_gilles J2tvlaUnsorted
