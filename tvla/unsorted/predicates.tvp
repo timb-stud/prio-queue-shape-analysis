@@ -37,6 +37,9 @@ foreach (z in PVar) {
   %i r[n,z](v) = E(v_1) (z(v_1) & t[n](v_1, v))
 }
 
+// The predicate deq represents the equality of the data fields of the two list elements
+%p deq(v_1, v_2) reflexive transitive symmetric
+
 
 //new predicates
 %p newElement(v)
