@@ -1,7 +1,7 @@
 ///////
 // Sets
 
-%s PVar {$r1, $r3, $r4, $parameter0, $this, boolean_$return, $i2, int_$parameter0, int_$parameter1, int_$return, i0, int_i1, r0, r1, r2}
+%s PVar {$r1, $r4, $r5, $parameter0, $this, $return, $i2, $i3,  $parameter0, $parameter1, $return, i0, i1, r0, r1, r2, r3}
 
 #include "predicates.tvp"
 
@@ -16,6 +16,7 @@
 //
 
 
+
 // line _unknown_ : r0 := $this: de.htw.PriorityQueueUnsorted (AssignRefToRefStmt)
 L_lx_g52 Copy_Var_L(r0, $this) L_lx_g53
 
@@ -25,102 +26,113 @@ L_lx_g53 Skip() L_lx_g54
 // line _unknown_ : i1 := $parameter1: int (AssignStmt)
 L_lx_g54 Skip() L_l89_g55
 
-// line 89 : if i0 > 0 goto r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (IfStmt)
-L_l89_g55 Skip() L_l93_g58
+// line 89 : if i0 > 0 goto $r4 = new de.htw.QueueElement (IfStmt)
+L_l89_g55 Skip() L_l92_g58
 L_l89_g55 Skip() L_l90_g56
 
 // line 90 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
 L_l90_g56 Skip() L_l90_g57
 
 // line 90 : return 0 (ReturnStmt)
-L_l90_g57 Skip() L_l90_i1_g92
-L_l90_i1_g92 Skip() exit_false 
+L_l90_g57 Skip() L_l90_i1_g96
+L_l90_i1_g96 Skip() L_lx_g94
 
 
-// line 93 : r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l93_g58 Get_head(r1, r0) L_l94_g59
+// line 92 : $r4 = new de.htw.QueueElement (AssignNewClassStmt)
+L_l92_g58 New($r4) L_l92_g59
 
-// line 94 : goto [?= (branch)] (GotoStmt)
-L_l94_g59 Skip() L_l94_g67
+// line 92 : $this = $r4 [J2TVLA parameter assignment] [J2TVLA receiver parameter assignment] (AssignRefToRefStmt)
+L_l92_g59 Copy_Var_L($this, $r4) L_l92_g60
 
-// line 95 : $i2 = r1.<de.htw.QueueElement: int data> (AssignStmt)
-L_l95_g60 Skip() L_l95_g61
-
-// line 95 : if $i2 != i0 goto r1 = r1.<de.htw.QueueElement: de.htw.QueueElement next> (IfStmt)
-L_l95_g61 Skip() L_l99_g66
-L_l95_g61 Data_Eq($i2, i0) L_l96_g62
-
-// line 96 : r1.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
-L_l96_g62 Skip() L_l96_g63
-
-// line 96 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l96_g63 Set_Null_L(r1) L_l97_g64
-
-// line 97 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
-L_l97_g64 Skip() L_l97_g65
-
-// line 97 : return 0 (ReturnStmt)
-L_l97_g65 Skip() L_l97_i1_g104
-L_l97_i1_g104 Skip() exit_false 
+// line 92 : specialinvoke $r4.<de.htw.QueueElement: void <init>()>() (InvokeStmt)
+L_l92_g60 Skip() L_lx_g100
 
 
-// line 99 : r1 = r1.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
-L_l99_g66 Get_next(r1, r1) L_l94_g67
+// line 92 : r1 = $r4 (AssignRefToRefStmt)
+L_l92_g61 Copy_Var_L(r1, $r4) L_l92_g62
 
-// line 94 : if r1 != null goto $i2 = r1.<de.htw.QueueElement: int data> (IfEqualToNullStmt)
-L_l94_g67 Is_Null_Var(r1) L_l102_g68
-L_l94_g67 Is_Not_Null_Var(r1) L_l95_g60
+// line 92 : $r4 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l92_g62 Set_Null_L($r4) L_l93_g63
 
-// line 102 : r2 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l102_g68 Get_head(r2, r0) L_l103_g69
+// line 93 : r1.<de.htw.QueueElement: int data> = i0 (AssignStmt)
+L_l93_g63 Skip() L_l94_g64
 
-// line 103 : $r3 = new de.htw.QueueElement (AssignNewClassStmt)
-//L_l103_g69 New($r3) L_l103_g70
-L_l103_g69 New($r3) L_l103_g74
+// line 94 : r1.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
+L_l94_g64 Skip() L_l97_g65
+
+// line 97 : r2 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
+L_l97_g65 Get_head(r2, r0) L_l98_g66
+
+// line 98 : goto [?= (branch)] (GotoStmt)
+L_l98_g66 Skip() L_l98_g76
+
+// line 99 : $i2 = r2.<de.htw.QueueElement: int data> (AssignStmt)
+L_l99_g67 Skip() L_l99_g68
+
+// line 99 : if $i2 != i0 goto r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (IfStmt)
+L_l99_g68  Skip() L_l103_g75
+L_l99_g68  Data_Eq(r2, i0) L_l100_g69
+
+// line 100 : $i3 = r1.<de.htw.QueueElement: int priority> (AssignStmt)
+L_l100_g69 Get_data($i3, r1) L_l100_g70
+
+// line 100 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l100_g70 Set_Null_L(r1) L_l100_g71
+
+// line 100 : r2.<de.htw.QueueElement: int priority> = $i3 (AssignStmt)
+L_l100_g71 Set_data(r2, $i3) L_l100_g72
+
+// line 100 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l100_g72 Set_Null_L(r2) L_l101_g73
+
+// line 101 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
+L_l101_g73 Skip() L_l101_g74
+
+// line 101 : return 0 (ReturnStmt)
+L_l101_g74 Skip() L_l101_i1_g119
+L_l101_i1_g119 Skip() L_lx_g117
 
 
-// line 103 : $parameter0 = i0 [J2TVLA parameter assignment] (AssignStmt)
-//L_l103_g70 Skip() L_l103_g71
+// line 103 : r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
+L_l103_g75 Get_next(r2, r2) L_l98_g76
 
-// line 103 : $parameter1 = i1 [J2TVLA parameter assignment] (AssignStmt)
-//L_l103_g71 Skip() L_l103_g72
+// line 98 : if r2 != null goto $i2 = r2.<de.htw.QueueElement: int data> (IfEqualToNullStmt)
+L_l98_g76 Is_Null_Var(r2) L_l106_g77
+L_l98_g76 Is_Not_Null_Var(r2) L_l99_g67
 
-// line 103 : $this = $r3 [J2TVLA parameter assignment] [J2TVLA receiver parameter assignment] (AssignRefToRefStmt)
-//L_l103_g72 Copy_Var_L($this, $r3) L_l103_g73
+// line 106 : r3 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
+L_l106_g77 Get_head(r3, r0) L_l107_g78
 
-// line 103 : specialinvoke $r3.<de.htw.QueueElement: void <init>(int,int)>(i0, i1) (InvokeStmt)
-//L_l103_g73 Skip() L_lx_g113
+// line 107 : r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> = r1 (AssignRefToInstanceFieldRefStmt)
+L_l107_g78 Set_head_Null(r0) L_l107_i1_g125
+L_l107_i1_g125  Set_head(r0, r1) L_l107_g79
 
+// line 107 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l107_g79 Set_Null_L(r1) L_l108_g80
 
-// line 103 : r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> = $r3 (AssignRefToInstanceFieldRefStmt)
-L_l103_g74 Set_head_Null(r0) L_l103_i1_g117
-L_l103_i1_g117  Set_head(r0, $r3) L_l103_g75
+// line 108 : $r5 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
+L_l108_g80 Get_head($r5, r0) L_l108_g81
 
-// line 103 : $r3 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l103_g75 Set_Null_L($r3) L_l104_g76
+// line 108 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l108_g81 Set_Null_L(r0) L_l108_g82
 
-// line 104 : $r4 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l104_g76 Get_head($r4, r0) L_l104_g77
+// line 108 : $r5.<de.htw.QueueElement: de.htw.QueueElement next> = r3 (AssignRefToInstanceFieldRefStmt)
+L_l108_g82 Set_next_Null($r5) L_l108_i1_g130
+L_l108_i1_g130  Set_next($r5, r3) L_l108_g83
 
-// line 104 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l104_g77 Set_Null_L(r0) L_l104_g78
+// line 108 : $r5 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l108_g83 Set_Null_L($r5) L_l108_g84
 
-// line 104 : $r4.<de.htw.QueueElement: de.htw.QueueElement next> = r2 (AssignRefToInstanceFieldRefStmt)
-L_l104_g78 Set_next_Null($r4) L_l104_i1_g122
-L_l104_i1_g122  Set_next($r4, r2) L_l104_g79
+// line 108 : r3 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l108_g84 Set_Null_L(r3) L_l110_g85
 
-// line 104 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l104_g79 Set_Null_L(r2) L_l104_g80
+// line 110 : $return = 1 [J2TVLA callee return assignment] (AssignStmt)
+L_l110_g85 Skip() L_l110_g86
 
-// line 104 : $r4 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l104_g80 Set_Null_L($r4) L_l106_g81
+// line 110 : return 1 (ReturnStmt)
+L_l110_g86 Skip() L_l110_i1_g137
+L_l110_i1_g137 Skip() L_lx_g135
 
-// line 106 : $return = 1 [J2TVLA callee return assignment] (AssignStmt)
-L_l106_g81 Skip() L_l106_g82
-
-// line 106 : return 1 (ReturnStmt)
-L_l106_g82 Skip() L_l106_i1_g129
-L_l106_i1_g129 Skip() exit_true 
 
 
 exit_true Skip() exit
