@@ -6,7 +6,7 @@ public class J2tvlaUnsorted {
 		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
 		pq.enqueue(1234, 1);
 		pq.isEmpty();
-		pq.peek();
-		pq.dequeue();
+//		pq.peek();
+//		pq.dequeue();
 	}
 }
