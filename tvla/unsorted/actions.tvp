@@ -77,6 +77,7 @@
            "Illegal dereference to\n" + n + " component of " + rhs
   {
     lhs(v) = E(v_1) rhs(v_1) & n(v_1, v)
+	r[n,lhs](v) = r[n,rhs](v) &  !rhs(v)
   }
 }
 

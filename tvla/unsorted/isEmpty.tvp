@@ -1,7 +1,7 @@
 ///////
 // Sets
 
-%s PVar {$r1, $this, r0, r1, head}
+%s PVar {$r1, $this, r0, r1}
 
 #include "predicates.tvp"
 
@@ -20,7 +20,7 @@ L_lx_g130 Copy_Var_L(r0, $this) L_l115_g131
 
 
 // line 115 : $r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l115_g131 Get_Head($r1, r0) L_l115_g132
+L_l115_g131 Get_next($r1, r0) L_l115_g132
 
 // line 115 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l115_g132 Set_Null_L(r0) L_l115_g133
@@ -51,5 +51,5 @@ L_l115_i1_g155 Skip() exit_false
 exit_true Skip() exit
 exit_false Skip() exit
 
-exit Assert_ListInvariants(head) error
-exit Assert_No_Leak(head)        error
+exit Assert_ListInvariants($this) error
+exit Assert_No_Leak($this)        error

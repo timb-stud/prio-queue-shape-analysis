@@ -1,23 +1,27 @@
 // An acyclic singly-linked list with two or more elements pointed by program x.
-%n = {head, tail}
+%n = {head, tail, queue}
 %p = {
        sm = {tail:1/2}
-       n = {head->tail:1/2, tail->tail:1/2}
-       head = {head}
-       t[n] = {head->head, head->tail, tail->tail:1/2}
-       r[n,head] = {head, tail}
+       n = {queue -> head, head->tail:1/2, tail->tail:1/2}
+	   $this = {queue}
+       t[n] = {queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
+	   r[n,$this] = {queue, head, tail}
 }
 
 // An acyclic singly-linked list with a single element pointed by x.
-%n = {head}
+%n = {head, queue}
 %p = {
-       head = {head}
-       t[n] = {head->head}
-       r[n,head] = {head}
+	   n = {queue->head}
+	   $this = {queue}
+       t[n] = {queue->queue, queue->head, head->head}
+	   r[n,$this] = {queue, head}
 }
 
 
 // An empty list (x points to NULL).
-%n = {}
+%n = {queue}
 %p = {
+	t[n] = {queue->queue}
+	$this = {queue}
+	r[n,$this]= {queue}
 }
