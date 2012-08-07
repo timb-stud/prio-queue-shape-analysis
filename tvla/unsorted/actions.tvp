@@ -80,14 +80,18 @@
   }
 }
 
-
 %action Get_head(lhs, rhs) {
-	%t lhs + " = " + rhs + "->" + "head"
-	%f {rhs(v), lhs(v)}
-	{
-		lhs(v) = head(v)
-	}
+  %t lhs + " = " + rhs + "->head"
+  %f { E(v_1, v_2) rhs(v_1) & n(v_1, v_2) &  t[n](v_2, v) }
+  %message (!E(v) rhs(v)) ->
+           "Illegal dereference to\n" + n + " component of " + rhs
+  {
+    lhs(v) = E(v_1) rhs(v_1) & n(v_1, v)
+  }
 }
+
+
+
 
 %action Set_next_Null(lhs) {
   %t lhs + "->" + n + " = NULL"
@@ -107,15 +111,15 @@
 %action Set_head_Null(lhs) {
   %t lhs + "->head = NULL"
   %f { 
-       lhs(v)
+       lhs(v),
        // optimized change-formula for t[n] update-formula
-       //E(v_1, v_2) lhs(v_1) & n(v_1, v_2) & t[n](v_2, v)   
+       E(v_1, v_2) lhs(v_1) & n(v_1, v_2) & t[n](v_2, v)   
      }
-  //%message (!E(v) lhs(v)) -> "Illegal dereference to\n" +
-   //                          head  + " component of " + lhs
+  %message (!E(v) lhs(v)) -> "Illegal dereference to\n" +
+                             n + " component of " + lhs
 
-  {	
-	head(v) = 0
+  {
+    n(v_1, v_2) = n(v_1, v_2) & !lhs(v_1)
   }
 }
 
@@ -139,17 +143,18 @@
 %action Set_head(lhs, rhs) {
   %t lhs + "->head = " + rhs
   %f {
-       lhs(v), rhs(v)
+       lhs(v), rhs(v),
        // optimized change-formula for t[n] upate-formula
-       //E(v_4) rhs(v_4) & t[n](v_4, v_2)
+       E(v_4) rhs(v_4) & t[n](v_4, v_2)
      }
-  %message (E(v) head(v)) ->
-           "Internal Error! " + lhs + "->head != NULL"
+  %message (E(v_1, v_2) lhs(v_1) & n(v_1, v_2)) ->
+           "Internal Error! " + lhs + "->" + n + " != NULL"
+  %message (E(v_1, v_2) lhs(v_1) & rhs(v_2) & t[n](v_2, v_1)) -> 
+           "A cycle may be introduced\nby assignment " + lhs + "->" + n + "=" + rhs
   {
-	  head(v) = head(v) | rhs(v) //evtl head(v) entfernen
+    n(v_1, v_2) = n(v_1, v_2) | lhs(v_1) & rhs(v_2)
   }
 }
-
 
 //////////////////////////////////////////////////////////////////
 // Actions needed to simulate program conditions involving pointer
