@@ -1,7 +1,7 @@
 ///////
 // Sets
 
-%s PVar {$r1, $r3, $r4, $parameter0, $this, boolean_$return, int_$i2, int_$parameter0, int_$parameter1, int_$return, int_i0, int_i1, r0, r1, r2}
+%s PVar {$r1, $r3, $r4, $parameter0, $this, boolean_$return, $i2, int_$parameter0, int_$parameter1, int_$return, i0, int_i1, r0, r1, r2}
 
 #include "predicates.tvp"
 
@@ -48,7 +48,7 @@ L_l95_g60 Skip() L_l95_g61
 
 // line 95 : if $i2 != i0 goto r1 = r1.<de.htw.QueueElement: de.htw.QueueElement next> (IfStmt)
 L_l95_g61 Skip() L_l99_g66
-L_l95_g61 Skip() L_l96_g62
+L_l95_g61 Data_Eq($i2, i0) L_l96_g62
 
 // line 96 : r1.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
 L_l96_g62 Skip() L_l96_g63
