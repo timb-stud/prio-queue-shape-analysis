@@ -6,6 +6,7 @@
 	   $this = {queue}
        t[n] = {queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
 	   r[n,$this] = {queue, head, tail}
+	   deq = {queue->queue, head->head, tail->tail:1/2}
 }
 
 // An acyclic singly-linked list with a single element pointed by x.
@@ -15,6 +16,7 @@
 	   $this = {queue}
        t[n] = {queue->queue, queue->head, head->head}
 	   r[n,$this] = {queue, head}
+	   deq = {queue->queue, head->head}
 }
 
 
@@ -24,4 +26,5 @@
 	t[n] = {queue->queue}
 	$this = {queue}
 	r[n,$this]= {queue}
+	deq = {queue->queue}
 }
