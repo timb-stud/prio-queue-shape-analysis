@@ -90,7 +90,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 			return false;
 		
 		//if list contains element with the same data, the priority must be updated
-		QueueElement current = head;
+		QueueElement current = this.head;
 		while (current != null){
 			if (current.data == data){
 				current.priority = priority;
