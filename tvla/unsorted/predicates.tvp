@@ -10,15 +10,9 @@ foreach (z in PVar) {
   %p z(v_1) unique pointer
 }
 
-// The predicate isSet is true for heap cells that represent sets
-%p isSet(v)
-    c[n](v) = c[n](v)
-
 // The predicate n represents the n field of the list data type.
 %p n(v_1, v_2) function acyclic
 
-// The predicate deq represents the equality of the data fields of the two list elements
-%p deq(v_1, v_2) reflexive transitive symmetric
 
 /////////////////////////////////////////////
 // Instrumentation (i.e., derived) predicates
@@ -26,10 +20,6 @@ foreach (z in PVar) {
 // The is[n] predicate holds for list elements pointed by two different
 // list elements.
 %i is[n](v) = E(v_1, v_2) (v_1 != v_2 & n(v_1, v) & n(v_2, v))
-
-// The c[v] predicate holds for elements that reside on a cycle
-// along the n field.
-%i c[n](v) =  E(v_1) (n(v_1, v) & n*(v, v_1))
 
 // The t[n] predicate records transitive reflexive reachability between
 // list elements along the n field.
@@ -46,27 +36,6 @@ foreach (z in PVar) {
 foreach (z in PVar) {
   %i r[n,z](v) = E(v_1) (z(v_1) & t[n](v_1, v))
 }
-
-//The noeq[deq] predicate expresses that an element is different from all the 
-//other elements that can be reached by a sequence of next-pointers (forward or backward)
-%i noeq[deq,n](v) = A(v_1) (((t[n](v_1, v) | t[n](v, v_1)) & v_1 != v) 
-        -> (!deq(v_1, v) & !deq(v, v_1)))
-
-%r ((t[n](v_1,v_2) | t[n](v_2,v_1)) & v_1 != v_2 & noeq[deq,n](v_2)) ==> !deq(v_2, v_1)
-%r ((t[n](v_1,v_2) | t[n](v_2,v_1)) & v_1 != v_2 & noeq[deq,n](v_2)) ==> !deq(v_1, v_2)
-%r (t[n](v_1,v_2) & noeq[deq,n](v_2)) ==> noeq[deq,n](v_1)
-%r (t[n](v_2,v_1) & noeq[deq,n](v_2)) ==> noeq[deq,n](v_1)
-%r A(v)((t[n](v,v_1) & v != v_1) -> !deq(v,v_1)) ==> noeq[deq,n](v_1)
-%r A(v)((t[n](v_1,v) & v != v_1) -> !deq(v,v_1)) ==> noeq[deq,n](v_1)
-%r (noeq[deq,n](v) & deq(v_1, v) & v != v_1) ==> !t[n](v_1,v)
-
-// The predicate validSet is true for heap cells that represent valid sets
-%i validSet(v) = isSet(v) & noeq[deq,n](v)
-
-//The binary predicate isElement expresses that v_1 is element of set v_2
-%i isElement(v_1, v_2) = isSet(v_2) & E(v)(t[n](v_2,v) & deq(v_1,v) & v != v_2)
-
-%r t[n](v,v_2) & isSet(v) & v != v_2 ==> isElement(v_2, v)
 
 
 //new predicates

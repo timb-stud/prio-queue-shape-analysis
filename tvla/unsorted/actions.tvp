@@ -50,17 +50,6 @@
       r[n,z](v) = r[n,z](v)
     }
     is[n](v) = is[n](v)
-
-    c[n](v) = c[n](v)
-
-    deq(v_1, v_2) = (isNew(v_1) & isNew(v_2)) |           //reflexive...
-                    (v_1 != v_2  & (isNew(v_1) | isNew(v_2))? 1/2 : deq(v_1, v_2))
-
-    noeq[deq,n](v) =  (isNew(v) ? 1 : noeq[deq,n](v))
-    isElement(v_1,v_2) = (isNew(v_1) ? 1/2 : isElement(v_1,v_2))
-    validSet(v) = (isNew(v) ? 0 : validSet(v))
-
-
     newElement(v) = isNew(v)
   }
 }
@@ -88,32 +77,17 @@
            "Illegal dereference to\n" + n + " component of " + rhs
   {
     lhs(v) = E(v_1) rhs(v_1) & n(v_1, v)
-	r[n,lhs](v) = r[n,rhs](v) &  !rhs(v)
-  }
-}
-
-%action Set_Data_L(lhs, rhs) {
-  %t lhs + "->data = " + rhs + "->data"
-  %f { lhs(v) }
-  %message (!E(v) rhs(v)) ->
-           "Illegal dereference to\n" + data + " component of " + rhs
-  %message (!E(v) lhs(v)) ->
-           "Illegal dereference to\n" + data + " component of " + lhs
-  {
-    deq(v_1, v_2) = (lhs(v_1) & E(v)(rhs(v) & deq(v, v_2)))     //comp. x->data with s.th.
-                  | (lhs(v_2) & E(v)(rhs(v) & deq(v_1, v)))     //comp. x->data with s.th.
-                  | (!lhs(v_1) & !lhs(v_2) & deq(v_1, v_2))
   }
 }
 
 
-/*%action Get_head(lhs, rhs) {
+%action Get_head(lhs, rhs) {
 	%t lhs + " = " + rhs + "->" + "head"
 	%f {rhs(v), lhs(v)}
 	{
 		lhs(v) = head(v)
 	}
-}*/
+}
 
 %action Set_next_Null(lhs) {
   %t lhs + "->" + n + " = NULL"
@@ -130,7 +104,7 @@
   }
 }
 
-/*%action Set_head_Null(lhs) {
+%action Set_head_Null(lhs) {
   %t lhs + "->head = NULL"
   %f { 
        lhs(v)
@@ -143,7 +117,7 @@
   {	
 	head(v) = 0
   }
-}*/
+}
 
 
 %action Set_next(lhs, rhs) {
@@ -203,34 +177,6 @@
   %t lhs + " != " + rhs
   %f { lhs(v), rhs(v) } 
   %p !A(v) lhs(v) <-> rhs(v)
-}
-
-//////////////////////////////////////////////////////////////////
-// Actions needed to simulate program conditions involving comparisons
-// of data elements.
-
-%action Data_Eq(lhs, rhs) {
-  %t lhs + ".data == " + rhs + ".data"
-  %f { lhs(v_1) & rhs(v_2) & deq(v_1, v_2) }
-  %p E(v_1, v_2) (lhs(v_1) & rhs(v_2) & deq(v_1, v_2))
-  {
-   // deq(v_1,v_2) = (((lhs(v_1) & rhs(v_2)) | (rhs(v_1) & lhs(v_2))) ? 1 : deq(v_1, v_2))
-   deq(v_1, v_2) = ((lhs(v_1) & rhs(v_2)) | (rhs(v_1) & lhs(v_2)))
-                  | (lhs(v_1) & deq(v_1,v_2) & E(v)(rhs(v) & deq(v,v_2)))
-                  | (lhs(v_2) & deq(v_1,v_2) & E(v)(rhs(v) & deq(v_1,v)))
-                  | (rhs(v_1) & deq(v_1,v_2) & E(v)(lhs(v) & deq(v,v_2)))
-                  | (rhs(v_2) & deq(v_1,v_2) & E(v)(lhs(v) & deq(v_1,v)))
-                  | (v_1 == v_2)
-  }
-}
-
-%action Data_Not_Eq(lhs, rhs) {
-  %t lhs + ".data != " + rhs + ".data"
-  %f { lhs(v_1) & rhs(v_2) & deq(v_1, v_2) }
-  %p !E(v_1, v_2) (lhs(v_1) & rhs(v_2) & deq(v_1, v_2))
-  {
-    deq(v_1,v_2) = (((lhs(v_1) & rhs(v_2)) | (rhs(v_1) & lhs(v_2))) ? 0 : deq(v_1, v_2))
-  }
 }
 
 
