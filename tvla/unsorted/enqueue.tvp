@@ -1,7 +1,7 @@
 ///////
 // Sets
 
-%s PVar {$r1, $r3, $r4, $parameter0, $this, boolean_$return, int_$i2, int_$parameter0, int_$parameter1, int_$return, int_i0, int_i1, r0, r1, r2, head}
+%s PVar {$r1, $r3, $r4, $parameter0, $this, boolean_$return, int_$i2, int_$parameter0, int_$parameter1, int_$return, int_i0, int_i1, r0, r1, r2}
 
 #include "predicates.tvp"
 
@@ -126,5 +126,5 @@ L_l106_i1_g129 Skip() exit_true
 exit_true Skip() exit
 exit_false Skip() exit
 
-exit Assert_ListInvariants(head) error
-exit Assert_No_Leak(head)        error
+exit Assert_ListInvariants($this) error
+exit Assert_No_Leak($this)        error
