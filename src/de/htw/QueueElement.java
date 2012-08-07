@@ -9,6 +9,10 @@ public class QueueElement {
 		this.priority	= priority;
 	}
 	
+	public QueueElement() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "{d: " + data + ", p: " + priority + "}";
