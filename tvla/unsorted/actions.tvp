@@ -203,3 +203,26 @@
   %message ( E(v) !r[n,lhs](v) ) -> 
            "There may be a list element not reachable from variable " + lhs + "!"
 }
+
+
+//////////////////////////////////////////////////////////////////
+// Actions needed to simulate program conditions involving comparisons
+// of data elements.
+
+%action Data_Eq(lhs, rhs) {
+  %t lhs + ".data == " + rhs + ".data"
+  %f { lhs(v_1) & rhs(v_2) & deq(v_1, v_2) }
+  %p E(v_1, v_2) (lhs(v_1) & rhs(v_2) & deq(v_1, v_2))
+  {
+	deq(v_1, v_2) = deq(v_1, v_2) | ( lhs(v_1) & rhs(v_2) )
+  }
+}
+/*
+%action Data_Not_Eq(lhs, rhs) {
+  %t lhs + ".data != " + rhs + ".data"
+  %f { lhs(v_1) & rhs(v_2) & deq(v_1, v_2) }
+  %p !E(v_1, v_2) (lhs(v_1) & rhs(v_2) & deq(v_1, v_2))
+  {
+    deq(v_1,v_2) = (((lhs(v_1) & rhs(v_2)) | (rhs(v_1) & lhs(v_2))) ? 0 : deq(v_1, v_2))
+  }
+}*/
