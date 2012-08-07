@@ -6,7 +6,7 @@ public class J2tvlaSorted {
 		PriorityQueueSorted pq = new PriorityQueueSorted();
 		pq.enqueue(1234, 1);
 		pq.isEmpty();
-		pq.peek();
-		pq.dequeue();
+//		pq.peek();
+//		pq.dequeue();
 	}
 }
