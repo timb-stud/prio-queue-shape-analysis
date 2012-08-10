@@ -16,7 +16,6 @@
 //
 
 
-
 // line _unknown_ : r0 := $this: de.htw.PriorityQueueUnsorted (AssignRefToRefStmt)
 L_lx_g52 Copy_Var_L(r0, $this) L_lx_g53
 
@@ -24,7 +23,7 @@ L_lx_g52 Copy_Var_L(r0, $this) L_lx_g53
 L_lx_g53 Skip() L_lx_g54
 
 // line _unknown_ : i1 := $parameter1: int (AssignStmt)
-L_lx_g54 Skip() L_l89_g55
+L_lx_g54 Skip() L_l92_g58
 
 // line 89 : if i0 > 0 goto $r4 = new de.htw.QueueElement (IfStmt)
 L_l89_g55 Skip() L_l92_g58
@@ -35,17 +34,17 @@ L_l90_g56 Skip() L_l90_g57
 
 // line 90 : return 0 (ReturnStmt)
 L_l90_g57 Skip() L_l90_i1_g96
-L_l90_i1_g96 Skip() L_lx_g94
+L_l90_i1_g96 Skip() exit_false 
 
 
 // line 92 : $r4 = new de.htw.QueueElement (AssignNewClassStmt)
-L_l92_g58 New($r4) L_l92_g59
+L_l92_g58 New($r4) L_l92_g61
 
 // line 92 : $this = $r4 [J2TVLA parameter assignment] [J2TVLA receiver parameter assignment] (AssignRefToRefStmt)
-L_l92_g59 Copy_Var_L($this, $r4) L_l92_g60
+//L_l92_g59 Copy_Var_L($this, $r4) L_l92_g60
 
 // line 92 : specialinvoke $r4.<de.htw.QueueElement: void <init>()>() (InvokeStmt)
-L_l92_g60 Skip() L_lx_g100
+//L_l92_g60 Skip() L_l92_g61
 
 
 // line 92 : r1 = $r4 (AssignRefToRefStmt)
@@ -70,17 +69,17 @@ L_l98_g66 Skip() L_l98_g76
 L_l99_g67 Skip() L_l99_g68
 
 // line 99 : if $i2 != i0 goto r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (IfStmt)
-L_l99_g68  Skip() L_l103_g75
-L_l99_g68  Data_Eq(r2, i0) L_l100_g69
+L_l99_g68 Skip() L_l103_g75
+L_l99_g68 Skip() L_l100_g69
 
 // line 100 : $i3 = r1.<de.htw.QueueElement: int priority> (AssignStmt)
-L_l100_g69 Get_data($i3, r1) L_l100_g70
+L_l100_g69 Skip() L_l100_g70
 
 // line 100 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l100_g70 Set_Null_L(r1) L_l100_g71
 
 // line 100 : r2.<de.htw.QueueElement: int priority> = $i3 (AssignStmt)
-L_l100_g71 Set_data(r2, $i3) L_l100_g72
+L_l100_g71 Skip() L_l100_g72
 
 // line 100 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l100_g72 Set_Null_L(r2) L_l101_g73
@@ -90,7 +89,7 @@ L_l101_g73 Skip() L_l101_g74
 
 // line 101 : return 0 (ReturnStmt)
 L_l101_g74 Skip() L_l101_i1_g119
-L_l101_i1_g119 Skip() L_lx_g117
+L_l101_i1_g119 Skip() exit_false
 
 
 // line 103 : r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
@@ -131,7 +130,7 @@ L_l110_g85 Skip() L_l110_g86
 
 // line 110 : return 1 (ReturnStmt)
 L_l110_g86 Skip() L_l110_i1_g137
-L_l110_i1_g137 Skip() L_lx_g135
+L_l110_i1_g137 Skip() exit_true
 
 
 
