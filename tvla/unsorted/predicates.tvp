@@ -40,6 +40,10 @@ foreach (z in PVar) {
 // The predicate deq represents the equality of the data fields of the two list elements
 %p deq(v_1, v_2) reflexive transitive symmetric
 
+// The predicate deq represents the equality of the priority fields of the two list elements
+%p peq(v_1, v_2) reflexive transitive symmetric
+
+
 
 //new predicates
 %p newElement(v)
