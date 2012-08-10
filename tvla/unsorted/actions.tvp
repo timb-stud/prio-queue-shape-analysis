@@ -267,10 +267,11 @@
 
 %action Set_priority(lhs, rhs) {
 	%t lhs + ".priority = " + rhs
-	%f { lhs(v), rhs(v) }
+	%f { lhs(v), rhs(v)}
 	%message (!E(v) lhs(v)) ->
            "Illegal dereference to priority component of " + lhs
     {
 		peq(v_1, v_2) = peq(v_1, v_2) | lhs(v_1) & rhs(v_2)
+		updatedElement(v) = updatedElement(v) | lhs(v)
 	}
 }
