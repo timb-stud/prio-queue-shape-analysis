@@ -239,3 +239,36 @@
 		deq(v_1, v_2) = deq(v_1, v_2) | lhs(v_1) & rhs(v_2)
 	}
 }
+
+//////////////////////////////////////////////////////////////////
+// Actions needed to simulate program conditions involving comparisons
+// of priority elements.
+
+
+%action Priority_Eq(lhs, rhs) {
+  %t lhs + ".data == " + rhs + ".data"
+  %f { lhs(v_1) & rhs(v_2) & deq(v_1, v_2) }
+  %p E(v_1, v_2) (lhs(v_1) & rhs(v_2) & deq(v_1, v_2))
+  {
+	deq(v_1, v_2) = deq(v_1, v_2) | ( lhs(v_1) & rhs(v_2) )
+  }
+}
+
+%action Priority_Not_Eq(lhs, rhs) {
+  %t lhs + ".data != " + rhs + ".data"
+  %f { lhs(v_1) & rhs(v_2) & deq(v_1, v_2) }
+  %p !E(v_1, v_2) (lhs(v_1) & rhs(v_2) & deq(v_1, v_2))
+  {
+    deq(v_1,v_2) = (((lhs(v_1) & rhs(v_2)) | (rhs(v_1) & lhs(v_2))) ? 0 : deq(v_1, v_2))
+  }
+}
+
+%action Set_priority(lhs, rhs) {
+	%t lhs + ".data = " + rhs
+	%f { lhs(v), rhs(v) }
+	%message (!E(v) lhs(v)) ->
+           "Illegal dereference to data component of " + lhs
+    {
+		deq(v_1, v_2) = deq(v_1, v_2) | lhs(v_1) & rhs(v_2)
+	}
+}
