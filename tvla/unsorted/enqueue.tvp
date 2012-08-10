@@ -76,13 +76,15 @@ L_l99_g68 Data_Eq(r2, r1) L_l100_g69 //DEFTMP
 L_l100_g69 Skip() L_l100_g70
 
 // line 100 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l100_g70 Set_Null_L(r1) L_l100_g71
+//L_l100_g70 Set_Null_L(r1) L_l100_g71 //HIER
+L_l100_g70 Skip() L_l100_g71
 
 // line 100 : r2.<de.htw.QueueElement: int priority> = $i3 (AssignStmt)
-L_l100_g71 Set_priority(r2, r1) L_l100_g72 //HIER
+L_l100_g71 Copy_priority(r2, r1) L_l100_g72 //HIER
 
 // line 100 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l100_g72 Set_Null_L(r2) L_l101_g73
+//L_l100_g72 Set_Null_L(r2) L_l101_g73
+L_l100_g72 Skip() L_l101_g73 //HIER
 
 // line 101 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
 L_l101_g73 Skip() L_l101_g74
