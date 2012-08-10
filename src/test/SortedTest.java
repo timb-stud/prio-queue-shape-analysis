@@ -9,11 +9,6 @@ import de.htw.QueueElement;
 
 public class SortedTest extends Assert {
 	
-	@Test
-	public void negativeElement() {
-		PriorityQueueSorted pq = new PriorityQueueSorted();
-		assertFalse(pq.enqueueGilles2(-1, 4));
-	}
 
 	@Test
 	public void elements1() {
@@ -85,12 +80,6 @@ public class SortedTest extends Assert {
 	}
 
 	@Test
-	public void enqueueGillesNegativeElement() {
-		PriorityQueueSorted pq = new PriorityQueueSorted();
-		assertFalse(pq.enqueueGilles(-1, 4));
-	}
-
-	@Test
 	public void enqueueGillesElements1() {
 		PriorityQueueSorted pq = new PriorityQueueSorted();
 		QueueElement qe1 = new QueueElement(1, 5);
@@ -141,9 +130,9 @@ public class SortedTest extends Assert {
 		//qe2.next = qe3;
 		assertTrue(pq.enqueueGilles(qe1.data, qe1.priority));
 		assertTrue(pq.enqueueGilles(qe2.data, qe2.priority));
-		assertTrue(pq.enqueueGilles(qe3.data, qe3.priority));
+		assertFalse(pq.enqueueGilles(qe3.data, qe3.priority));
 		assertTrue(pq.enqueueGilles(qe4.data, qe4.priority));
-		assertTrue(pq.enqueueGilles(qe5.data, qe5.priority));
+		assertFalse(pq.enqueueGilles(qe5.data, qe5.priority));
 
 		assertListEquals(qe5, pq.head);
 	}
@@ -156,7 +145,7 @@ public class SortedTest extends Assert {
 		//qe2 must be the only node in the queue
 		
 		assertTrue(pq.enqueueGilles(qe1.data, qe1.priority));
-		assertTrue(pq.enqueueGilles(qe2.data, qe2.priority));
+		assertFalse(pq.enqueueGilles(qe2.data, qe2.priority));
 		assertEquals(qe2, pq.head);
 	}
 

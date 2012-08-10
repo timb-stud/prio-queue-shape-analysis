@@ -66,14 +66,14 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			}
 			return true;
 		}
-		
+
 		// Override head data
 		if (head.data == data) {
 			delElement = head;
 			head = delElement.next;
 			delElement.next = null;
 		}
-		
+
 		// Insert before head
 		if (priority < head.priority) {
 			qe.next = head;
@@ -96,7 +96,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			pre = current;
 			current = current.next;
 		}
-		
+
 		// Insert beyond tail
 		if (priority > pre.priority) {
 			pre.next = qe;
@@ -107,16 +107,8 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	}
 
 	public boolean enqueueGilles(int data, int priority) {
-		if (data <= 0)
-			return false;
 
 		QueueElement newNode = new QueueElement(data, priority);
-
-		// Insert into empty list
-		if (head == null) {
-			head = newNode;
-			return true;
-		}
 
 		// this is our general case, iterates completely over the entire queue
 		// remove the node with the same value as the argument data, because a
@@ -126,14 +118,15 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		QueueElement pre = null;
 		QueueElement current = head;
 		boolean alreadyAdded = false;
+		boolean updated = false;
 		while (current != null) {
-			if (current.data == data) { // remove current node
+			if (!updated && current.data == data) { // remove current node
 				if (pre != null) {
 					pre.next = current.next;
 				} else { // current node is the head of the queue
 					head = current.next;
 				}
-
+				updated = true;
 				current = current.next; // switch to next node, and try again
 				// pre stays the same as it points now to the new current node
 				continue;
@@ -166,83 +159,9 @@ public class PriorityQueueSorted implements IPriorityQueue {
 				head = newNode;
 			}
 		}
-		return true;
-	}
 
-	public boolean enqueueGilles2(int data, int priority) {
-		if (data <= 0)
-			return false;
+		return updated ? false : true;
 
-		QueueElement newNode = new QueueElement(data, priority);
-
-		// Insert into empty list
-		if (head == null) {
-			head = newNode;
-			return true;
-		}
-
-		// queue has only one node, update or add, before or after, the one node
-		if (head.next == null) {
-			if (head.data == data) {
-				head.priority = priority;
-			} else if (head.priority < priority) {
-				head.next = newNode;
-			} else {
-				newNode.next = head;
-				head = newNode;
-			}
-			return true;
-		}
-
-		// check if the head has to be removed
-		if (head.data == data) {
-			head = head.next;
-		}
-
-		// does the new node has to become the new head
-		boolean alreadyAdded = false;
-		if (head.priority > priority) {
-			QueueElement oldHead = head;
-			head = newNode;
-			head.next = oldHead;
-			alreadyAdded = true;
-		}
-
-		// this is our general case, iterates completely over the entire queue
-		// remove the node with the same value as the argument data, because a
-		// value is only allowed once in the queue
-		// add a new node before the first node, which has a worse priority as
-		// the argument priority
-		QueueElement pre = head;
-		QueueElement current = head.next;
-
-		while (current != null) {
-			if (current.data == data) { // remove current node
-				pre.next = current.next;
-				current = current.next; // switch to next node, and try again
-				// pre stays the same as it points now to the new current node
-				continue;
-			}
-
-			if (!alreadyAdded && priority < current.priority) {
-				// add before current node, as the priority has become too worse
-				pre.next = newNode;
-				newNode.next = current;
-				alreadyAdded = true; // make sure that the new node is only
-										// added once
-			}
-			pre = current;
-			current = current.next;
-		}
-
-		// if no node was added to the queue, add it as last element
-		// because no other place in the queue has been found, which fits for
-		// the new node
-		// pre is the tail of the queue
-		if (!alreadyAdded) {
-			pre.next = newNode;
-		}
-		return true;
 	}
 
 	@Override
