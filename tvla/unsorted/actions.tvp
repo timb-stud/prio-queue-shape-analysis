@@ -230,22 +230,6 @@
   }
 }
 
-%action Copy_data(lhs, rhs) {
-  %t lhs + ".data = " + rhs + ".data"
-  %f { lhs(v), rhs(v) }
-  %message (!E(v) lhs(v)) ->
-           "Illegal dereference to data component of " + lhs
-  %message (!E(v) rhs(v)) ->
-           "Illegal dereference to data component of " + rhs
-  {
-      //isDataZero(v1) = E(v2) ((lhs(v1) & rhs(v2)) ? isDataZero(v2) : isDataZero(v1))
-
-	  deq(v_1, v_2) = (lhs(v_1) & E(v)(rhs(v) & deq(v, v_2)))  			// compare x.data with s.th.
-	                  | (lhs(v_2) & E(v)(rhs(v) & deq(v_1, v)))        // compare x.data with s.th.
-	                  | (!lhs(v_1) & !lhs(v_2) & deq(v_1, v_2))        // else: use old value
-  }
-}
-
 %action Set_data(lhs, rhs) {
 	%t lhs + ".data = " + rhs
 	%f { lhs(v), rhs(v) }
