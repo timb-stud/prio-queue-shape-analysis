@@ -53,6 +53,8 @@
     newElement(v) = isNew(v)
 	deq(v_1, v_2) = (isNew(v_1) & isNew(v_2)) |           //reflexive...
                     (v_1 != v_2  & (isNew(v_1) | isNew(v_2))? 1/2 : deq(v_1, v_2))
+	peq(v_1, v_2) = (isNew(v_1) & isNew(v_2)) |           //reflexive...
+                    (v_1 != v_2  & (isNew(v_1) | isNew(v_2))? 1/2 : peq(v_1, v_2))
 
   }
 }
