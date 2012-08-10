@@ -54,7 +54,7 @@ L_l92_g61 Copy_Var_L(r1, $r4) L_l92_g62
 L_l92_g62 Set_Null_L($r4) L_l93_g63
 
 // line 93 : r1.<de.htw.QueueElement: int data> = i0 (AssignStmt)
-L_l93_g63 Skip() L_l94_g64
+L_l93_g63 Set_data(r1, i0) L_l94_g64
 
 // line 94 : r1.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
 L_l94_g64 Skip() L_l97_g65
@@ -69,8 +69,8 @@ L_l98_g66 Skip() L_l98_g76
 L_l99_g67 Skip() L_l99_g68
 
 // line 99 : if $i2 != i0 goto r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (IfStmt)
-L_l99_g68 Skip() L_l103_g75
-L_l99_g68 Skip() L_l100_g69
+L_l99_g68 Data_Not_Eq(r2, r1) L_l103_g75
+L_l99_g68 Data_Eq(r2, r1) L_l100_g69
 
 // line 100 : $i3 = r1.<de.htw.QueueElement: int priority> (AssignStmt)
 L_l100_g69 Skip() L_l100_g70
