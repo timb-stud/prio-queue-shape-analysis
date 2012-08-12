@@ -38,8 +38,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	 * 
 	 * @see de.htw.IPriorityQueue#enqueue(int, int)
 	 */
-	@Override
-	public boolean enqueue(int data, int priority) {
+	public boolean enqueueChris(int data, int priority) {
 		if (data <= 0)
 			return false;
 
@@ -243,6 +242,59 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			pre.next = newNode;
 		}
 		return true;
+	}
+	
+	public boolean enqueue(int data, int priority){
+		QueueElement prev = null;
+		QueueElement cur = head;
+		
+		QueueElement left  = null;
+		QueueElement right = null;
+		
+		boolean marked = false;
+		boolean added = true;
+		QueueElement nel = new QueueElement(data, priority);
+
+		if(cur==null) {
+			head = nel;
+			return true;
+		}
+		while(cur != null) {
+			if(!marked && cur.priority >= priority) {
+				if(cur.data == data) {
+					cur.priority = priority;
+					return false;
+				}
+				else {
+					left  = prev;
+					right = cur;
+					marked = true;
+				}
+			}
+			if(cur.data == data) {
+				if(prev != null)
+					prev.next = cur.next;
+				else
+					head = cur.next;
+				added = false;
+			}
+			prev = cur;
+			cur  = cur.next;
+		}
+		if(!marked) {
+			if(head != null)
+				prev.next = nel;
+			else
+				head = nel;
+			return added;
+		}
+		if(left != null)
+			left.next = nel;
+		else
+			head = nel;
+		nel.next = right;
+		
+		return added;
 	}
 
 	@Override

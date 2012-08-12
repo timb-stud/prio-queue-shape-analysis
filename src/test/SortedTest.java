@@ -60,14 +60,14 @@ public class SortedTest extends Assert {
 		QueueElement qe3 = new QueueElement(1, 5);
 		QueueElement qe4 = new QueueElement(123, 1);
 		QueueElement qe5 = new QueueElement(123, 1);
-		qe5.next = qe3;
-		qe3.next = qe2;
+		qe5.next = qe1;
+		qe1.next = qe2;
 		//qe2.next = qe3;
 		assertTrue(pq.enqueue(qe1.data, qe1.priority));
 		assertTrue(pq.enqueue(qe2.data, qe2.priority));
-		assertTrue(pq.enqueue(qe3.data, qe3.priority));
+		assertFalse(pq.enqueue(qe3.data, qe3.priority));
 		assertTrue(pq.enqueue(qe4.data, qe4.priority));
-		assertTrue(pq.enqueue(qe5.data, qe5.priority));
+		assertFalse(pq.enqueue(qe5.data, qe5.priority));
 		System.out.println(pq);
 		assertListEquals(qe5, pq.head);
 	}
@@ -80,7 +80,9 @@ public class SortedTest extends Assert {
 		//qe2 must be the only node in the queue
 		
 		assertTrue(pq.enqueue(qe1.data, qe1.priority));
-		assertTrue(pq.enqueue(qe2.data, qe2.priority));
+		System.out.println(pq);
+		assertFalse(pq.enqueue(qe2.data, qe2.priority));
+		System.out.println(pq);
 		assertEquals(qe2, pq.head);
 	}
 
@@ -107,7 +109,7 @@ public class SortedTest extends Assert {
 		assertTrue(pq.enqueueGilles(qe3.data, qe3.priority));
 		assertTrue(pq.enqueueGilles(qe4.data, qe4.priority));
 		assertTrue(pq.enqueueGilles(qe5.data, qe5.priority));
-		System.out.println(pq);
+		//System.out.println(pq);
 		assertListEquals(qe4, pq.head);
 	}
 
