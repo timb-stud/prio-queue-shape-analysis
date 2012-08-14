@@ -382,15 +382,14 @@ L_l104_g192 Skip() L_l104_g193
 
 // line 104 : return 0 (ReturnStmt)
 L_l104_g193 Skip() L_l104_i1_g358
-L_l104_i1_g358 Skip() L_lx_g356
-
+L_l104_i1_g358 Skip() return_false 
 
 // line 106 : $return = 1 [J2TVLA callee return assignment] (AssignStmt)
 L_l106_g194 Skip() L_l106_g195
 
 // line 106 : return 1 (ReturnStmt)
 L_l106_g195 Skip() L_l106_i1_g364
-L_l106_i1_g364 Skip() L_lx_g362
+L_l106_i1_g364 Skip() return_true
 
 
 // line 109 : r19 = r21 (AssignRefToRefStmt)

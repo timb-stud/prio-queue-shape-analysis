@@ -87,9 +87,9 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			qe.next = head;
 			head = qe;
 			if(removed){ //Add action to test removed true/false
-				return false; //exit_false
+				return false;
 			} else {
-				return true; //exit_true
+				return true;
 			}
 		}
 		
@@ -101,9 +101,9 @@ public class PriorityQueueSorted implements IPriorityQueue {
 				pre.next = qe; //skip r19, r21, r2 = null
 				qe.next = current;
 				if(removed){ //Add action to test removed true/false
-					return false; //exit_false
+					return false;
 				} else {
-					return true; //exit_true
+					return true;
 				}
 			}
 			pre = current;
