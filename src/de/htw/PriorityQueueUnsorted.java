@@ -28,18 +28,18 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 			return 0;
 		}
 		
-		int maxPrio = head.priority;
-		int result = head.data;
+		QueueElement maxPrio = head;
+		//int result = head.data;
 		QueueElement current = head.next;
 		while (current != null) {
-			if (current.priority < maxPrio) {
-				maxPrio = current.priority;
-				result = current.data;
+			if (current.priority < maxPrio.priority) {
+				maxPrio = current;
+				//result = current.data;
 			}
 			current = current.next;
 		}
-		
-		return result;
+		current = null;
+		return maxPrio.data;
 	}
 
 	/*
