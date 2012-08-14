@@ -38,13 +38,9 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	 * 
 	 * @see de.htw.IPriorityQueue#enqueue(int, int)
 	 */
-	public boolean enqueueChris(int data, int priority) {
-		if (data <= 0)
-			return false;
-
+	public boolean enqueue(int data, int priority) {
 		QueueElement qe = new QueueElement(data, priority);
-		QueueElement delElement;
-		boolean added = false;
+		boolean removed = false;
 
 		// Insert into empty list
 		if (head == null) {
@@ -55,6 +51,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		if (head.next == null) {
 			if (head.data == data) {
 				head.priority = priority;
+				return false;
 			} else {
 				if (head.priority > priority) {
 					qe.next = head;
@@ -62,35 +59,52 @@ public class PriorityQueueSorted implements IPriorityQueue {
 				} else {
 					head.next = qe;
 				}
+				return true;
 			}
-			return true;
 		}
 
 		// Override head data
 		if (head.data == data) {
-			delElement = head;
-			head = delElement.next;
-			delElement.next = null;
+			head.priority = priority;
+			return false;
 		}
 
+		//Remove item with equal data
+		QueueElement pre = head;
+		QueueElement current = head.next;
+		while(current != null && !removed){
+			if(current.data == data){
+				pre.next = current.next;
+				current.next = null;
+				removed = true;
+			}
+			pre = current;
+			current = current.next;
+		}
+		
 		// Insert before head
 		if (priority < head.priority) {
 			qe.next = head;
 			head = qe;
-			added = true;
+			if(removed){
+				return false;
+			} else {
+				return true;
+			}
 		}
-
-		QueueElement pre = head;
-		QueueElement current = head.next;
-		while (current != null) {
-			if (current.data == data) {
-				pre.next = current.next;
-				current.next = null;
-			} else if ((priority < current.priority) && !added) {
+		
+		//Add item (always!!!)
+		pre = head;
+		current = head.next;
+		while(current != null){
+			if(current.priority > priority){
 				pre.next = qe;
-				pre = pre.next;
 				qe.next = current;
-				added = true;
+				if(removed){
+					return false;
+				}else {
+					return true;
+				}
 			}
 			pre = current;
 			current = current.next;
@@ -101,8 +115,12 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			pre.next = qe;
 			qe.next = null;
 		}
-
-		return true;
+		
+		if(removed){
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 	public boolean enqueueGilles(int data, int priority) {
@@ -163,7 +181,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 
 	}
 	
-	public boolean enqueue(int data, int priority){
+	public boolean enqueueJoerg(int data, int priority){
 		QueueElement prev = null;
 		QueueElement cur = head;
 		
