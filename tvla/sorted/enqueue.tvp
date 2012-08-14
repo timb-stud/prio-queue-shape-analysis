@@ -207,7 +207,7 @@ L_l67_g139 Skip() L_l68_g140
 L_l68_g140 Get_head($r14, r0) L_l68_g141
 
 // line 68 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l68_g141 Set_Null_L(r0) L_l68_g142
+L_l68_g141 Skip() L_l68_g142
 
 // line 68 : $r14.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
 L_l68_g142 Skip() L_l68_g143
@@ -220,7 +220,7 @@ L_l69_g144 Skip() L_l69_g145
 
 // line 69 : return 0 (ReturnStmt)
 L_l69_g145 Skip() L_l69_i1_g293
-L_l69_i1_g293 Skip() L_lx_g291
+L_l69_i1_g293 Skip() exit_false
 
 
 // line 73 : r3 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
