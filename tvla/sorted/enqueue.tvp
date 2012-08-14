@@ -123,11 +123,11 @@ L_l53_g112 Get_head($r9, r0) exit_false
 //L_l53_g115 Set_Null_L($r9) L_l54_g116
 
 // line 54 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
-L_l54_g116 Skip() L_l54_g117
+//L_l54_g116 Skip() L_l54_g117
 
 // line 54 : return 0 (ReturnStmt)
-L_l54_g117 Skip() L_l54_i1_g254
-L_l54_i1_g254 Skip() L_lx_g252
+//L_l54_g117 Skip() L_l54_i1_g254
+//L_l54_i1_g254 Skip() L_lx_g252
 
 
 // line 56 : $r10 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
