@@ -306,10 +306,10 @@ L_l88_g170 Set_head_Null(r0) L_l88_i1_g322
 L_l88_i1_g322  Set_head(r0, r2) L_l88_g171
 
 // line 88 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l88_g171 Set_Null_L(r0) L_l88_g172
+L_l88_g171 Skip() L_l88_g172
 
 // line 88 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l88_g172 Set_Null_L(r2) L_l89_g173
+L_l88_g172 Skip() L_l89_g173
 
 // line 89 : if z0 == 0 goto $return = 1 [J2TVLA callee return assignment] (IfBoolStmt)
 L_l89_g173 Skip() L_l90_g174
@@ -320,7 +320,7 @@ L_l90_g174 Skip() L_l90_g175
 
 // line 90 : return 0 (ReturnStmt)
 L_l90_g175 Skip() L_l90_i1_g330
-L_l90_i1_g330 Skip() L_lx_g328
+L_l90_i1_g330 Skip() exit_false 
 
 
 // line 92 : $return = 1 [J2TVLA callee return assignment] (AssignStmt)
@@ -328,7 +328,7 @@ L_l92_g176 Skip() L_l92_g177
 
 // line 92 : return 1 (ReturnStmt)
 L_l92_g177 Skip() L_l92_i1_g336
-L_l92_i1_g336 Skip() L_lx_g334
+L_l92_i1_g336 Skip() exit_true
 
 
 // line 97 : r19 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
