@@ -117,9 +117,9 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 		
 		if(removed){ //Add action to test removed true/false
-			return false; //exit_false
+			return false;
 		}else{
-			return true; //exit_true
+			return true;
 		}
 	}
 
