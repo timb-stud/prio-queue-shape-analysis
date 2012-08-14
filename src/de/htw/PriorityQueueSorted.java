@@ -98,7 +98,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		current = head.next;
 		while(current != null){
 			if(current.priority > priority){ //Add priorty_greater action
-				pre.next = qe; //skip r19, r21, r2 = null
+				pre.next = qe;
 				qe.next = current;
 				if(removed){ //Add action to test removed true/false
 					return false;
@@ -112,8 +112,8 @@ public class PriorityQueueSorted implements IPriorityQueue {
 
 		// Insert beyond tail
 		if (priority > pre.priority) {
-			pre.next = qe; //skip r19 = null
-			qe.next = null; //skip r2 = null
+			pre.next = qe;
+			qe.next = null;
 		}
 		
 		if(removed){ //Add action to test removed true/false
