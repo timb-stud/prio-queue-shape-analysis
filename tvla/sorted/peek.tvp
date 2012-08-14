@@ -1,0 +1,70 @@
+///////
+// Sets
+
+%s PVar {$r1, $r6, $r7, $r8, $r9, $parameter0, $this, $return, z0, z1, $i2, $i3, $i4, $parameter0, $parameter1, $return, i0, i1, r0, r1, r2, r3, r4, r5, $r2}
+
+#include "predicates.tvp"
+
+%%
+
+#include "actions.tvp"
+
+%%
+
+////////////////////////////////////////////////////////////////////////////
+// peek()
+//
+
+
+
+/////////////////////////////////////////////////////////////////////
+// <de.htw.PriorityQueueSorted: int peek()>
+/////////////////////////////////////////////////////////////////////
+
+
+// line _unknown_ : r0 := $this: de.htw.PriorityQueueSorted (AssignRefToRefStmt)
+L_lx_g39 Copy_Var_L(r0, $this) L_l17_g40
+
+// line 17 : $r1 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
+L_l17_g40 Get_head($r1, r0) L_l17_g41
+
+// line 17 : if $r1 != null goto $r2 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfEqualToNullStmt)
+L_l17_g41 Is_Null_Var($r1) L_l17_g42
+L_l17_g41 Is_Not_Null_Var($r1) L_l19_g45
+
+// line 17 : $r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l17_g42 Set_Null_L($r1) L_l18_g43
+
+// line 18 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
+L_l18_g43 Skip() L_l18_g44
+
+// line 18 : return 0 (ReturnStmt)
+L_l18_g44 Skip() L_l18_i1_g60
+L_l18_i1_g60 Skip() exit_false
+
+
+// line 19 : $r2 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
+L_l19_g45 Get_head($r2, r0) L_l19_g46
+
+// line 19 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l19_g46 Set_Null_L(r0) L_l19_g47
+
+// line 19 : $i0 = $r2.<de.htw.QueueElement: int data> (AssignStmt)
+L_l19_g47 Skip() L_l19_g48
+
+// line 19 : $r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l19_g48 Set_Null_L($r2) L_l19_g49
+
+// line 19 : $return = $i0 [J2TVLA callee return assignment] (AssignStmt)
+L_l19_g49 Skip() L_l19_g50
+
+// line 19 : return $i0 (ReturnStmt)
+L_l19_g50 Skip() L_l19_i1_g70
+L_l19_i1_g70 Skip() exit_true
+
+
+exit_true Skip() exit
+exit_false Skip() exit
+
+exit Assert_ListInvariants($this) error
+exit Assert_No_Leak($this)        error
