@@ -54,12 +54,12 @@ public class PriorityQueueSorted implements IPriorityQueue {
 				return false;
 			} else {
 				if (head.priority > priority) { //Add priorty_greater action
-					qe.next = head; //skip r0 = null; skip r2 = null
+					qe.next = head;
 					head = qe;
 				} else {
-					head.next = qe; //skip r0 = null; skip r2 = null
+					head.next = qe;
 				}
-				return true; //exit_true
+				return true;
 			}
 		}
 
