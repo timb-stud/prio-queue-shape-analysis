@@ -29,26 +29,26 @@ L_lx_g85 Skip() L_lx_g86
 L_lx_g86 Skip() L_l42_g87
 
 // line 42 : $r1 = new de.htw.QueueElement (AssignNewClassStmt)
-L_l42_g87 New($r1) L_l42_g88
+L_l42_g87 New($r1) L_l43_g94
 
 // line 42 : $parameter0 = i0 [J2TVLA parameter assignment] (AssignStmt)
-L_l42_g88 Skip() L_l42_g89
+//L_l42_g88 Skip() L_l42_g89
 
 // line 42 : $parameter1 = i1 [J2TVLA parameter assignment] (AssignStmt)
-L_l42_g89 Skip() L_l42_g90
+//L_l42_g89 Skip() L_l42_g90
 
 // line 42 : $this = $r1 [J2TVLA parameter assignment] [J2TVLA receiver parameter assignment] (AssignRefToRefStmt)
-L_l42_g90 Copy_Var_L($this, $r1) L_l42_g91
+//L_l42_g90 Copy_Var_L($this, $r1) L_l42_g91
 
 // line 42 : specialinvoke $r1.<de.htw.QueueElement: void <init>(int,int)>(i0, i1) (InvokeStmt)
-L_l42_g91 Skip() L_l42_g92
+//L_l42_g91 Skip() L_l42_g92
 
 
 // line 42 : r2 = $r1 (AssignRefToRefStmt)
-L_l42_g92 Copy_Var_L(r2, $r1) L_l42_g93
+//L_l42_g92 Copy_Var_L(r2, $r1) L_l42_g93
 
 // line 42 : $r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l42_g93 Set_Null_L($r1) L_l43_g94
+//L_l42_g93 Set_Null_L($r1) L_l43_g94
 
 // line 43 : z0 = 0 (AssignStmt)
 L_l43_g94 Skip() L_l46_g95
