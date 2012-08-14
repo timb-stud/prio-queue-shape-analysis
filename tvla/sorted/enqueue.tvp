@@ -361,17 +361,17 @@ L_l101_g186 Set_next_Null(r19) L_l101_i1_g347
 L_l101_i1_g347  Set_next(r19, r2) L_l101_g187
 
 // line 101 : r19 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l101_g187 Set_Null_L(r19) L_l102_g188
+L_l101_g187 Skip() L_l102_g188
 
 // line 102 : r2.<de.htw.QueueElement: de.htw.QueueElement next> = r21 (AssignRefToInstanceFieldRefStmt)
 L_l102_g188 Set_next_Null(r2) L_l102_i1_g350
 L_l102_i1_g350  Set_next(r2, r21) L_l102_g189
 
 // line 102 : r21 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l102_g189 Set_Null_L(r21) L_l102_g190
+L_l102_g189 Skip() L_l102_g190
 
 // line 102 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l102_g190 Set_Null_L(r2) L_l103_g191
+L_l102_g190 Skip() L_l103_g191
 
 // line 103 : if z0 == 0 goto $return = 1 [J2TVLA callee return assignment] (IfBoolStmt)
 L_l103_g191 Skip() L_l104_g192
