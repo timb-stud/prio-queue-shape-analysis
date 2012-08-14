@@ -25,6 +25,15 @@
   }
 }
 
+%action Copy_Var_L_maxPrio(lhs, rhs) {
+  %t lhs + " = " + rhs
+  %f { rhs(v) } 
+  {
+    lhs(v) = rhs(v)
+    maxPrio(v) = lhs(v) 
+  }
+}
+
 %action Malloc_L(lhs) {
   %t lhs + " = (L) malloc(sizeof(struct node)) "
   %new

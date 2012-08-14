@@ -1,4 +1,5 @@
-import de.htw.PriorityQueueSorted;
+import de.htw.IPriorityQueue;
+import de.htw.PriorityQueueUnsorted;
 
 
 public class Main {
@@ -11,7 +12,8 @@ public class Main {
 //		System.out.println(pqs.enqueue(3, 3));
 //		System.out.println(pqs.toString());
 		
-		PriorityQueueSorted pq = new PriorityQueueSorted();
+		IPriorityQueue pq = new PriorityQueueUnsorted();
+		System.out.println("peek: " + pq.peek());
 		System.out.println("Element added: " + pq.enqueue(2, 2));
 		System.out.println("Element added: " + pq.enqueue(1, 1));
 		System.out.println("Element added: " + pq.enqueue(3, 3));

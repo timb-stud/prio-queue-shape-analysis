@@ -8,6 +8,7 @@
 	 r[n,$this] = {queue, head, tail}
 	 deq = {queue->queue, head->head, tail->tail:1/2}
 	 peq = {queue->queue, head->head, tail->tail:1/2}
+	 maxPrio={head}
 
 }
 
