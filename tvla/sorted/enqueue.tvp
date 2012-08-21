@@ -449,4 +449,4 @@ exit_false Skip() exit
 
 /////////////////////////////////////////////////////////////////////////
 // Display structures that arise only at the following program locations.
-L_lx_g84, exit_true
+L_lx_g84, exit_true, exit_false
