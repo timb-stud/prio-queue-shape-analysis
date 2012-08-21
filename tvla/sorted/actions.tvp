@@ -334,3 +334,15 @@
     lhs(v) = 0
   }
 }
+
+%action isTrue(lhs) {
+  %t lhs + " == true"
+  %f { lhs(v) } 
+  %p E(v) lhs(v)
+}
+
+%action isFalse(lhs) {
+  %t lhs + " == false"
+  %f { lhs(v) } 
+  %p !(E(v) lhs(v))
+}
