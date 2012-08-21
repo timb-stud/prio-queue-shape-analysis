@@ -356,3 +356,24 @@
   %f { lhs(v) } 
   %p !(E(v) lhs(v))
 }
+
+//////////////////////
+// Numeric comparisons for priority
+
+%action Greater_Priority_L(lhs, rhs) {
+  %t lhs + "->priority > " + rhs + "->priority"  
+  %f { lhs(v_1) & rhs(v_2) & ple(v_1, v_2) }
+  %p !E(v_1, v_2) lhs(v_1) & rhs(v_2) & ple(v_1, v_2)
+}
+
+%action Less_Equal_Priority_L(lhs, rhs) {
+  %t lhs + "->priority <= " + rhs + "->priority"     
+  %f { lhs(v_1) & rhs(v_2) & ple(v_1, v_2) }
+  %p E(v_1, v_2) lhs(v_1) & rhs(v_2) & ple(v_1, v_2)
+}
+
+%action Greater_Equal_Priority_L(lhs, rhs) {
+  %t lhs + "->priority >= " + rhs + "->priority"     
+  %f { lhs(v_1) & rhs(v_2) & ple(v_2, v_1) }
+  %p E(v_1, v_2) lhs(v_1) & rhs(v_2) & ple(v_2, v_1)
+}
