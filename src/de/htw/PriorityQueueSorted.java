@@ -39,7 +39,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	 * @see de.htw.IPriorityQueue#enqueue(int, int)
 	 */
 	public boolean enqueue(int data, int priority) {
-		QueueElement qe = new QueueElement(data, priority);
+		QueueElement qe = new QueueElement(data, priority); //r2
 		boolean removed = false; //z0 = false
 
 		// Insert into empty list
@@ -49,7 +49,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 		// Insert after head
 		if (head.next == null) {
-			if (head.data == data) { //Add data_equals action
+			if (head.data == data) {
 				head.priority = priority; //Add Set_priority action; update set_priority action
 				return false;
 			} else {
