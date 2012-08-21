@@ -97,7 +97,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		pre = head;
 		current = head.next;
 		while(current != null){
-			if(current.priority > priority){ //Add priorty_greater action
+			if(current.priority > priority){
 				pre.next = qe;
 				qe.next = current;
 				if(removed){

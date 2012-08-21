@@ -353,8 +353,8 @@ L_l99_g183 Skip() L_l99_g198
 L_l100_g184 Skip() L_l100_g185
 
 // line 100 : if $i7 <= i1 goto r19 = r21 (IfStmt)
-L_l100_g185 Skip() L_l109_g196
-L_l100_g185 Skip() L_l101_g186
+L_l100_g185 Less_Equal_Priority_L(r21, r2) L_l109_g196
+L_l100_g185 Greater_Priority_L(r21, r2) L_l101_g186
 
 // line 101 : r19.<de.htw.QueueElement: de.htw.QueueElement next> = r2 (AssignRefToInstanceFieldRefStmt)
 L_l101_g186 Set_next_Null(r19) L_l101_i1_g347
