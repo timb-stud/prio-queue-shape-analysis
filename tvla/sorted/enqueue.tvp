@@ -210,10 +210,10 @@ L_l68_g140 Get_head($r14, r0) L_l68_g141
 L_l68_g141 Skip() L_l68_g142
 
 // line 68 : $r14.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
-L_l68_g142 Skip() L_l68_g143
+L_l68_g142 Set_priority($r14, i1) L_l68_g143
 
 // line 68 : $r14 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l68_g143 Set_Null_L($r14) L_l69_g144
+L_l68_g143 Skip() L_l69_g144
 
 // line 69 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
 L_l69_g144 Skip() L_l69_g145
