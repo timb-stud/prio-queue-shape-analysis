@@ -374,8 +374,8 @@ L_l102_g189 Skip() L_l102_g190
 L_l102_g190 Skip() L_l103_g191
 
 // line 103 : if z0 == 0 goto $return = 1 [J2TVLA callee return assignment] (IfBoolStmt)
-L_l103_g191 Skip() L_l104_g192
-L_l103_g191 Skip() L_l106_g194
+L_l103_g191 isFalse(z0) L_l104_g192
+L_l103_g191 isTrue(z0) L_l106_g194
 
 // line 104 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
 L_l104_g192 Skip() L_l104_g193
