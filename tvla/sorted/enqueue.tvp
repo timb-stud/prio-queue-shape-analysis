@@ -262,7 +262,7 @@ L_l77_g156 Set_Null_L($r16) L_l78_g157
 L_l78_g157 Set_next_Null(r4) L_l79_g158
 
 // line 79 : z0 = 1 (AssignStmt)
-L_l79_g158 Skip() L_l81_g159
+L_l79_g158 Set_removed_True(z0) L_l81_g159
 
 // line 81 : r3 = r4 (AssignRefToRefStmt)
 L_l81_g159 Copy_Var_L(r3, r4) L_l82_g160

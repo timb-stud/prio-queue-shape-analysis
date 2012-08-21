@@ -76,7 +76,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			if(current.data == data){
 				pre.next = current.next;
 				current.next = null;
-				removed = true; //z0 = true
+				removed = true;
 			}
 			pre = current;
 			current = current.next;
