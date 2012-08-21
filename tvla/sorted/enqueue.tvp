@@ -445,11 +445,8 @@ L_l122_i1_g387 Skip() exit_true
 exit_true Skip() exit
 exit_false Skip() exit
 
-exit Assert_ListInvariants($this) error
-exit Assert_No_Leak($this)        error
-
 %%
 
 /////////////////////////////////////////////////////////////////////////
 // Display structures that arise only at the following program locations.
-L_lx_g84
+L_lx_g84, exit_true
