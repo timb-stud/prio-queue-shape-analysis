@@ -10,6 +10,8 @@
 	 peq = {queue->queue, head->head, tail->tail:1/2}
 	 maxPrio={head}
 
+       ple = {queue->queue, queue->head, queue->tail, tail->tail:1/2, tail->head:1/2, tail->queue:1/2, head->tail:1/2, head->head:1/2, head->queue:1/2}
+
 }
 
 // An empty list (x points to NULL).
@@ -20,4 +22,6 @@
 	r[n,$this]= {queue}
 	deq = {queue->queue}
 	peq = {queue->queue}
+
+      ple = {queue->queue}
 }
