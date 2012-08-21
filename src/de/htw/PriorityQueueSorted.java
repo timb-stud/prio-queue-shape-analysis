@@ -73,7 +73,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		QueueElement pre = head;
 		QueueElement current = head.next;
 		while(current != null && !removed){ //Add action to test removed predicate for true/false
-			if(current.data == data){  //Add data_equals action
+			if(current.data == data){
 				pre.next = current.next;
 				current.next = null;
 				removed = true; //z0 = true

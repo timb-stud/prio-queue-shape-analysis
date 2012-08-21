@@ -239,11 +239,11 @@ L_l74_g149 Set_Null_L($r15) L_l75_g150
 L_l75_g150 Skip() L_l75_g161
 
 // line 76 : $i5 = r4.<de.htw.QueueElement: int data> (AssignStmt)
-L_l76_g151 Skip() L_l76_g152
+//L_l76_g151 Skip() L_l76_g152
 
 // line 76 : if $i5 != i0 goto r3 = r4 (IfStmt)
-L_l76_g152 Skip() L_l81_g159
-L_l76_g152 Skip() L_l77_g153
+L_l76_g152 Data_Not_Eq(r4, r2) L_l81_g159
+L_l76_g152 Data_Eq(r4, r2) L_l77_g153
 
 // line 77 : $r16 = r4.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
 L_l77_g153 Get_next($r16, r4) L_l77_g154
@@ -276,7 +276,7 @@ L_l75_g161 Is_Not_Null_Var(r4) L_l75_g162
 
 // line 75 : if z0 == 0 goto $i5 = r4.<de.htw.QueueElement: int data> (IfBoolStmt)
 L_l75_g162 Skip() L_l86_g163
-L_l75_g162 Skip() L_l76_g151
+L_l75_g162 Skip() L_l76_g152
 
 // line 86 : $r17 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l86_g163 Get_head($r17, r0) L_l86_g164
