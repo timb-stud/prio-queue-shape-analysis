@@ -51,7 +51,7 @@ L_l42_g92 Copy_Var_L(r2, $r1) L_l42_g93
 L_l42_g93 Set_Null_L($r1) L_l43_g94
 
 // line 43 : z0 = 0 (AssignStmt)
-L_l43_g94 Skip() L_l46_g95
+L_l43_g94 Set_removed_False(z0) L_l46_g95
 
 // line 46 : $r5 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l46_g95 Get_head($r5, r0) L_l46_g96

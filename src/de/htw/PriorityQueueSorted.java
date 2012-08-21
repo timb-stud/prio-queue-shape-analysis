@@ -40,7 +40,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	 */
 	public boolean enqueue(int data, int priority) {
 		QueueElement qe = new QueueElement(data, priority); //r2
-		boolean removed = false; //z0 = false
+		boolean removed = false;
 
 		// Insert into empty list
 		if (head == null) {
