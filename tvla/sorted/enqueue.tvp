@@ -275,8 +275,8 @@ L_l75_g161 Is_Null_Var(r4) L_l86_g163
 L_l75_g161 Is_Not_Null_Var(r4) L_l75_g162
 
 // line 75 : if z0 == 0 goto $i5 = r4.<de.htw.QueueElement: int data> (IfBoolStmt)
-L_l75_g162 Skip() L_l86_g163
-L_l75_g162 Skip() L_l76_g152
+L_l75_g162 isTrue(z0) L_l86_g163
+L_l75_g162 isFalse(z0) L_l76_g152
 
 // line 86 : $r17 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l86_g163 Get_head($r17, r0) L_l86_g164
