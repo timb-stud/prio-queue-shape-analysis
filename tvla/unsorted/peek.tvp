@@ -62,7 +62,8 @@ L_l35_g53 Skip() L_l39_g55
 L_l35_g53 Skip() L_l36_g54
 
 // line 36 : r1 = r2 (AssignRefToRefStmt)
-L_l36_g54 Copy_Var_L(r1, r2) L_l39_g55
+L_l36_g54 Copy_Var_L(r1, r2) L_l36_g54a
+L_l36_g54a Set_maxPrio(r1) L_l39_g55 //has to be done in two steps. why?
 
 // line 39 : r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
 L_l39_g55 Get_next(r2, r2) L_l34_g56
@@ -72,13 +73,16 @@ L_l34_g56 Is_Null_Var(r2) L_l41_g57
 L_l34_g56 Is_Not_Null_Var(r2) L_l35_g51
 
 // line 41 : n0 = null (AssignNullToLocalStmt)
-L_l41_g57 Set_Null_L(n0) L_l42_g58
+L_l41_g57 Set_Null_L(n0) L_l42_g57a
+
+//set returnedElement predicate
+L_l42_g57a Set_returnedElement(r1) L_l42_g58
 
 // line 42 : $i2 = r1.<de.htw.QueueElement: int data> (AssignStmt)
 L_l42_g58 Skip() L_l42_g59
 
 // line 42 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l42_g59 Set_Null_L(r1) L_l42_g60
+L_l42_g59 Skip() L_l42_g60 //Modified from Set_Null_L(r1) to Skip()
 
 // line 42 : $return = $i2 [J2TVLA callee return assignment] (AssignStmt)
 L_l42_g60 Skip() L_l42_g61
@@ -94,3 +98,5 @@ exit_false Skip() exit
 
 exit Assert_ListInvariants($this) error
 exit Assert_No_Leak($this)        error
+
+%% exit_true
