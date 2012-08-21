@@ -29,16 +29,15 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 		}
 		
 		QueueElement maxPrio = head;
-		//int result = head.data;
 		QueueElement current = head.next;
 		while (current != null) {
-			if (current.priority < maxPrio.priority) { //Variable vertauschen in tvla
+			if (current.priority < maxPrio.priority) { // Variable vertauschen,
+														// in tvla
+														// maxPrio.priority > current.priority
 				maxPrio = current;
-				//result = current.data;
 			}
 			current = current.next;
 		}
-		//current = null;
 		return maxPrio.data;
 	}
 
