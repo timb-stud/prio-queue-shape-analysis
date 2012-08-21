@@ -423,8 +423,8 @@ L_l116_g203 Set_next_Null(r2) L_l116_g204
 L_l116_g204 Skip() L_l119_g205
 
 // line 119 : if z0 == 0 goto $return = 1 [J2TVLA callee return assignment] (IfBoolStmt)
-L_l119_g205 Skip() L_l120_g206
-L_l119_g205 Skip() L_l122_g208
+L_l119_g205 isFalse(z0) L_l120_g206
+L_l119_g205 isTrue(z0) L_l122_g208
 
 // line 120 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
 L_l120_g206 Skip() L_l120_g207

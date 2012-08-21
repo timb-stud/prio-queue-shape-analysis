@@ -116,7 +116,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			qe.next = null;
 		}
 		
-		if(removed){ //Add action to test removed true/false
+		if(removed){
 			return false;
 		}else{
 			return true;
