@@ -53,7 +53,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 				head.priority = priority; //update set_priority action
 				return false;
 			} else {
-				if (head.priority > priority) { //Add priorty_greater action
+				if (head.priority > priority) {
 					qe.next = head;
 					head = qe;
 				} else {
