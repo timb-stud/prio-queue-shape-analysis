@@ -340,27 +340,27 @@
 %action Set_removed_True(lhs) {
   %t lhs + " = true"
   {
-    lhs(v) = 1
+	removed(v) = lhs(v)
   }
 }
 
 %action Set_removed_False(lhs) {
   %t lhs + " = false"
   {
-    lhs(v) = 0
+	removed(v) = 0
   }
 }
 
 %action isTrue(lhs) {
   %t lhs + " == true"
   %f { lhs(v) } 
-  %p E(v) lhs(v)
+  %p E(v) removed(v)
 }
 
 %action isFalse(lhs) {
   %t lhs + " == false"
   %f { lhs(v) } 
-  %p !(E(v) lhs(v))
+  %p !(E(v) removed(v))
 }
 
 //////////////////////
