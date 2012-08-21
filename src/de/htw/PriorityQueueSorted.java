@@ -39,44 +39,44 @@ public class PriorityQueueSorted implements IPriorityQueue {
 	 * @see de.htw.IPriorityQueue#enqueue(int, int)
 	 */
 	public boolean enqueue(int data, int priority) {
-		QueueElement qe = new QueueElement(data, priority); //jump to next line
-		boolean removed = false; //z0 = false
+		QueueElement qe = new QueueElement(data, priority); //r2
+		boolean removed = false;
 
 		// Insert into empty list
 		if (head == null) {
-			head = qe;//goto return_true
+			head = qe;
 			return true;
 		}
 		// Insert after head
 		if (head.next == null) {
-			if (head.data == data) { //Add data_equals action
-				head.priority = priority; //Add Set_priority action; goto return false; update set_priority action
+			if (head.data == data) {
+				head.priority = priority; //Add Set_priority action; update set_priority action
 				return false;
 			} else {
 				if (head.priority > priority) { //Add priorty_greater action
-					qe.next = head; //skip r0 = null; skip r2 = null
+					qe.next = head;
 					head = qe;
 				} else {
-					head.next = qe; //skip r0 = null; skip r2 = null
+					head.next = qe;
 				}
-				return true; //exit_true
+				return true;
 			}
 		}
 
 		// Override head data
-		if (head.data == data) { //Add data_equals action
-			head.priority = priority; //Add Set_priority action; goto return false; update set_priority action
+		if (head.data == data) {
+			head.priority = priority; //Add Set_priority action; update set_priority action
 			return false;
 		}
 
 		//Remove item with equal data
 		QueueElement pre = head;
 		QueueElement current = head.next;
-		while(current != null && !removed){ //Add action to test removed true/false
-			if(current.data == data){  //Add data_equals action
+		while(current != null && !removed){
+			if(current.data == data){
 				pre.next = current.next;
 				current.next = null;
-				removed = true; //z0 = true
+				removed = true;
 			}
 			pre = current;
 			current = current.next;
@@ -85,11 +85,11 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		// Insert before head
 		if (head.priority > priority) {  //Add priorty_greater action
 			qe.next = head;
-			head = qe; //skip r0 = null; skip r2 = null
-			if(removed){ //Add action to test removed true/false
-				return false; //exit_false
+			head = qe;
+			if(removed){
+				return false;
 			} else {
-				return true; //exit_true
+				return true;
 			}
 		}
 		
@@ -98,12 +98,12 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		current = head.next;
 		while(current != null){
 			if(current.priority > priority){ //Add priorty_greater action
-				pre.next = qe; //skip r19, r21, r2 = null
+				pre.next = qe;
 				qe.next = current;
-				if(removed){ //Add action to test removed true/false
-					return false; //exit_false
+				if(removed){
+					return false;
 				} else {
-					return true; //exit_true
+					return true;
 				}
 			}
 			pre = current;
@@ -112,14 +112,14 @@ public class PriorityQueueSorted implements IPriorityQueue {
 
 		// Insert beyond tail
 		if (priority > pre.priority) {
-			pre.next = qe; //skip r19 = null
-			qe.next = null; //skip r2 = null
+			pre.next = qe;
+			qe.next = null;
 		}
 		
-		if(removed){ //Add action to test removed true/false
-			return false; //exit_false
+		if(removed){
+			return false;
 		}else{
-			return true; //exit_true
+			return true;
 		}
 	}
 
