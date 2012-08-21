@@ -58,6 +58,8 @@
                     
     dle(v_1, v_2) = (isNew(v_1) & isNew(v_2)) |
                     (v_1 != v_2  & (isNew(v_1)| isNew(v_2))? 1/2 : dle(v_1, v_2))
+	ple(v_1, v_2) = (isNew(v_1) & isNew(v_2)) |
+                    (v_1 != v_2  & (isNew(v_1)| isNew(v_2))? 1/2 : dle(v_1, v_2))
     inOrder[dle,n](v) = (isNew(v) ? 1 : inOrder[dle,n](v))
     inROrder[dle,n](v) = (isNew(v) ? 1 : inROrder[dle,n](v))                
 
