@@ -111,13 +111,13 @@ L_l52_g111 Data_Not_Eq($r8, r2) L_l56_g118
 L_l52_g111 Data_Eq($r8, r2) L_l53_g112
 
 // line 53 : $r9 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l53_g112 Get_head($r9, r0) exit_false
+L_l53_g112 Get_head($r9, r0) L_l53_g114
 
 // line 53 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 //L_l53_g113 Set_Null_L(r0) L_l53_g114
 
 // line 53 : $r9.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
-//L_l53_g114 Skip() L_l53_g115
+L_l53_g114 Set_priority($r9, i1) exit_false
 
 // line 53 : $r9 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 //L_l53_g115 Set_Null_L($r9) L_l54_g116
