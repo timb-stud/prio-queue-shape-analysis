@@ -86,7 +86,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		if (head.priority > priority) {  //Add priorty_greater action
 			qe.next = head;
 			head = qe;
-			if(removed){ //Add action to test removed predicate for true/false
+			if(removed){
 				return false;
 			} else {
 				return true;
