@@ -279,17 +279,17 @@ L_l75_g162 isTrue(z0) L_l86_g163
 L_l75_g162 isFalse(z0) L_l76_g152
 
 // line 86 : $r17 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l86_g163 Get_head($r17, r0) L_l86_g164
+L_l86_g163 Get_head($r17, r0) L_l86_g166
 
 // line 86 : $i6 = $r17.<de.htw.QueueElement: int priority> (AssignStmt)
-L_l86_g164 Skip() L_l86_g165
+//L_l86_g164 Skip() L_l86_g165
 
 // line 86 : $r17 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l86_g165 Set_Null_L($r17) L_l86_g166
+//L_l86_g165 Set_Null_L($r17) L_l86_g166
 
 // line 86 : if $i6 <= i1 goto r19 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfStmt)
-L_l86_g166 Skip() L_l97_g178
-L_l86_g166 Skip() L_l87_g167
+L_l86_g166 Less_Equal_Priority_L($r17, r2) L_l97_g178
+L_l86_g166 Greater_Priority_L($r17, r2) L_l87_g167
 
 // line 87 : $r18 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l87_g167 Get_head($r18, r0) L_l87_g168
