@@ -48,6 +48,7 @@ foreach (z in PVar) {
 //new predicates
 %p newElement(v)
 %p updatedElement(v)
+%p returnedElement(v)
 
 /////////////////////////////////////
 // Predicates related to numeric data

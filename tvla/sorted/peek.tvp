@@ -44,7 +44,10 @@ L_l18_i1_g60 Skip() exit_false
 
 
 // line 19 : $r2 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l19_g45 Get_head($r2, r0) L_l19_g46
+L_l19_g45 Get_head($r2, r0) L_l19_g45a
+
+//set returnedElement predicate
+L_l19_g45a Set_returnedElement($r2) L_l19_g46
 
 // line 19 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l19_g46 Set_Null_L(r0) L_l19_g47

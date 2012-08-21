@@ -48,4 +48,5 @@ foreach (z in PVar) {
 //new predicates
 %p newElement(v)
 %p updatedElement(v)
-%p maxPrio(v) 
+%p returnedElement(v)
+%p maxPrio(v)
