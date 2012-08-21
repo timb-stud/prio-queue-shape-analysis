@@ -50,7 +50,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		// Insert after head
 		if (head.next == null) {
 			if (head.data == data) {
-				head.priority = priority; //Add Set_priority action; update set_priority action
+				head.priority = priority; //update set_priority action
 				return false;
 			} else {
 				if (head.priority > priority) { //Add priorty_greater action
