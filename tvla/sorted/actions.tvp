@@ -316,3 +316,21 @@
   %f { lhs(v_1) & rhs(v_2) & dle(v_2, v_1) }
   %p E(v_1, v_2) lhs(v_1) & rhs(v_2) & dle(v_2, v_1)
 }
+
+
+//////////////////////////
+//boolean removed variable
+
+%action Set_removed_True(lhs) {
+  %t lhs + " = true"
+  {
+    lhs(v) = 1
+  }
+}
+
+%action Set_removed_False(lhs) {
+  %t lhs + " = false"
+  {
+    lhs(v) = 0
+  }
+}

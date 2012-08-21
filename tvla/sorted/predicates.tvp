@@ -49,6 +49,9 @@ foreach (z in PVar) {
 %p newElement(v)
 %p updatedElement(v)
 
+// boolean removed = false;
+%p removed(v)
+
 /////////////////////////////////////
 // Predicates related to numeric data
 
