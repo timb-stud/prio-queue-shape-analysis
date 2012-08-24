@@ -57,11 +57,13 @@ L_l43_g94 Set_removed_False() L_l46_g95
 L_l46_g95 Get_head($r5, r0) L_l46_g96
 
 // line 46 : if $r5 != null goto $r6 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfEqualToNullStmt)
-L_l46_g96 Is_Null_Var($r5) L_l46_g97
-L_l46_g96 Is_Not_Null_Var($r5) L_l51_g103
+L_l46_g96 Is_Null_Var($r5) L_l46_g96a
+L_l46_g96 Is_Not_Null_Var($r5) L_l46_g96b
+L_l46_g96a Set_Null_L($r5) L_l46_g97
+L_l46_g96b Set_Null_L($r5) L_l51_g103
 
 // line 46 : $r5 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l46_g97 Set_Null_L($r5) L_l47_g98
+L_l46_g97 Skip() L_l47_g98
 
 // line 47 : r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> = r2 (AssignRefToInstanceFieldRefStmt)
 L_l47_g98 Set_head_Null(r0) L_l47_i1_g228
