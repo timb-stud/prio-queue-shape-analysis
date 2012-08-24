@@ -344,22 +344,20 @@
   }
 }
 
-%action Set_removed_False(lhs) {
+%action Set_removed_False() {
   %t lhs + " = false"
   {
 	removed(v) = 0
   }
 }
 
-%action isTrue(lhs) {
+%action isTrue() {
   %t lhs + " == true"
-  %f { lhs(v) } 
   %p E(v) removed(v)
 }
 
-%action isFalse(lhs) {
+%action isFalse() {
   %t lhs + " == false"
-  %f { lhs(v) } 
   %p !(E(v) removed(v))
 }
 
