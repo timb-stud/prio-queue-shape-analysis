@@ -54,17 +54,17 @@ foreach (z in PVar) {
 %p removed(v)
 
 /////////////////////////////////////
-// Predicates related to numeric data
+// Predicates related to numeric data for priorities
 
 // The predicate dle holds for two list elements if the numeric value
 // in the data field of the first element is less or equal to the value
 // in the data field of the second element.
-%p dle(v_1, v_2) transitive reflexive
+%p ple(v_1, v_2) transitive reflexive
 
 // The following integrity constraint means that dle is anti-symmetric
 // and together with the functional properties above (transitive and reflezive)
 // we get that dle is a total order.
-%r !dle(v_1, v_2) ==> dle(v_2, v_1)
+%r !ple(v_1, v_2) ==> ple(v_2, v_1)
 
 // The predicate inOrder[del,n] holds for a list element, if it points,
 // via the field n, to a list element whose data field is less or equal
@@ -86,16 +86,3 @@ foreach (z in PVar) {
     //%p or[n,z,l](v) 
   //}
 //}
-
-/////////////////////////////////////
-// Predicates related to numeric data for priorities
-
-// The predicate dle holds for two list elements if the numeric value
-// in the data field of the first element is less or equal to the value
-// in the data field of the second element.
-%p ple(v_1, v_2) transitive reflexive
-
-// The following integrity constraint means that dle is anti-symmetric
-// and together with the functional properties above (transitive and reflezive)
-// we get that dle is a total order.
-%r !ple(v_1, v_2) ==> ple(v_2, v_1)
