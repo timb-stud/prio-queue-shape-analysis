@@ -296,8 +296,10 @@ L_l86_g163 Get_head($r17, r0) L_l86_g166
 //L_l86_g165 Set_Null_L($r17) L_l86_g166
 
 // line 86 : if $i6 <= i1 goto r19 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfStmt)
-L_l86_g166 Less_Equal_Priority_L($r17, r2) L_l97_g178
-L_l86_g166 Greater_Priority_L($r17, r2) L_l87_g167
+L_l86_g166 Less_Equal_Priority_L($r17, r2) L_l86_g166a
+L_l86_g166 Greater_Priority_L($r17, r2) L_l86_g166b
+L_l86_g166a Set_Null_L($r17) L_l97_g178
+L_l86_g166b Set_Null_L($r17) L_l87_g167
 
 // line 87 : $r18 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l87_g167 Get_head($r18, r0) L_l87_g168
