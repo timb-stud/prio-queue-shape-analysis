@@ -60,8 +60,8 @@
                     (v_1 != v_2  & (isNew(v_1)| isNew(v_2))? 1/2 : dle(v_1, v_2))
 	ple(v_1, v_2) = (isNew(v_1) & isNew(v_2)) |
                     (v_1 != v_2  & (isNew(v_1)| isNew(v_2))? 1/2 : ple(v_1, v_2))
-    inOrder[dle,n](v) = (isNew(v) ? 1 : inOrder[dle,n](v))
-    inROrder[dle,n](v) = (isNew(v) ? 1 : inROrder[dle,n](v))                
+    inOrder[ple,n](v) = (isNew(v) ? 1 : inOrder[ple,n](v))
+    inROrder[ple,n](v) = (isNew(v) ? 1 : inROrder[ple,n](v))                
 
   }
 }
@@ -289,7 +289,7 @@
            "Illegal dereference to priority component of " + lhs
     {
 		peq(v_1, v_2) = peq(v_1, v_2) | lhs(v_1) & rhs(v_2)
-		ple(v_1, v_2) = ple(v_1, v_2) | lhs(v_1) & rhs(v_2)
+		//ple(v_1, v_2) = ple(v_1, v_2) | lhs(v_1) & rhs(v_2)
 	}
 }
 
@@ -304,9 +304,9 @@
 	  peq(v_1, v_2) = (lhs(v_1) & E(v)(rhs(v) & peq(v, v_2)))  // compare x.data with s.th.
 	                  | (lhs(v_2) & E(v)(rhs(v) & peq(v_1, v)))        // compare x.data with s.th.
 	                  | (!lhs(v_1) & !lhs(v_2) & peq(v_1, v_2))        // else: use old value
-	  ple(v_1, v_2) = (lhs(v_1) & E(v)(rhs(v) & ple(v, v_2)))  // compare x.data with s.th.
+	  /*ple(v_1, v_2) = (lhs(v_1) & E(v)(rhs(v) & ple(v, v_2)))  // compare x.data with s.th.
 	                  | (lhs(v_2) & E(v)(rhs(v) & ple(v_1, v)))        // compare x.data with s.th.
-	                  | (!lhs(v_1) & !lhs(v_2) & ple(v_1, v_2))        // else: use old value
+	                  | (!lhs(v_1) & !lhs(v_2) & ple(v_1, v_2))        // else: use old value*/
 
 	updatedElement(v) = updatedElement(v) | lhs(v)
   }
