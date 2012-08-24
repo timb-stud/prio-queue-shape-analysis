@@ -375,7 +375,7 @@ L_l101_g186 Set_next_Null(r19) L_l101_i1_g347
 L_l101_i1_g347  Set_next(r19, r2) L_l101_g187
 
 // line 101 : r19 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l101_g187 Skip() L_l102_g188
+L_l101_g187 Set_Null_L(r19) L_l102_g188
 
 // line 102 : r2.<de.htw.QueueElement: de.htw.QueueElement next> = r21 (AssignRefToInstanceFieldRefStmt)
 L_l102_g188 Set_next_Null(r2) L_l102_i1_g350
@@ -463,4 +463,4 @@ exit_false Skip() exit
 
 /////////////////////////////////////////////////////////////////////////
 // Display structures that arise only at the following program locations.
-L_lx_g84, L_l90_i1_g330
+L_lx_g84, L_l104_i1_g358
