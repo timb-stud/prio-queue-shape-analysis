@@ -107,27 +107,29 @@ L_l52_g108 Get_head($r8, r0) L_l52_g111
 //L_l52_g110 Set_Null_L($r8) L_l52_g111
 
 // line 52 : if $i2 != i0 goto $r10 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfStmt)
-L_l52_g111 Data_Not_Eq($r8, r2) L_l56_g118
-L_l52_g111 Data_Eq($r8, r2) L_l53_g112
+L_l52_g111 Data_Not_Eq($r8, r2) L_l52_g111a
+L_l52_g111 Data_Eq($r8, r2) L_l52_g111b
+L_l52_g111a Set_Null_L($r8) L_l56_g118
+L_l52_g111b Set_Null_L($r8) L_l53_g112
 
 // line 53 : $r9 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l53_g112 Get_head($r9, r0) L_l53_g114
+L_l53_g112 Get_head($r9, r0) L_l53_g113
 
 // line 53 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-//L_l53_g113 Set_Null_L(r0) L_l53_g114
+L_l53_g113 Skip() L_l53_g114
 
 // line 53 : $r9.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
-L_l53_g114 Set_priority($r9, i1) exit_false
+L_l53_g114 Set_priority($r9, i1) L_l53_g115
 
 // line 53 : $r9 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-//L_l53_g115 Set_Null_L($r9) L_l54_g116
+L_l53_g115 Set_Null_L($r9) L_l54_g116
 
 // line 54 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
-//L_l54_g116 Skip() L_l54_g117
+L_l54_g116 Skip() L_l54_g117
 
 // line 54 : return 0 (ReturnStmt)
-//L_l54_g117 Skip() L_l54_i1_g254
-//L_l54_i1_g254 Skip() L_lx_g252
+L_l54_g117 Skip() L_l54_i1_g254
+L_l54_i1_g254 Skip() exit_false
 
 
 // line 56 : $r10 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
@@ -140,8 +142,11 @@ L_l56_g118 Get_head($r10, r0) L_l56_g121
 //L_l56_g120 Set_Null_L($r10) L_l56_g121
 
 // line 56 : if $i3 <= i1 goto $r12 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfStmt)
-L_l56_g121 Less_Equal_Priority_L($r10, r2) L_l60_g129
-L_l56_g121 Greater_Priority_L($r10, r2) L_l57_g122
+L_l56_g121 Less_Equal_Priority_L($r10, r2) L_l56_g121a
+L_l56_g121 Greater_Priority_L($r10, r2) L_l56_g121b
+L_l56_g121a Set_Null_L($r10) L_l60_g129
+L_l56_g121b Set_Null_L($r10) L_l57_g122
+
 
 // line 57 : $r11 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l57_g122 Get_head($r11, r0) L_l57_g123
@@ -200,8 +205,11 @@ L_l67_g136 Get_head($r13, r0) L_l67_g139
 //L_l67_g138 Set_Null_L($r13) L_l67_g139
 
 // line 67 : if $i4 != i0 goto r3 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfStmt)
-L_l67_g139 Data_Not_Eq($r13, r2) L_l73_g146
-L_l67_g139 Data_Eq($r13, r2) L_l68_g140
+L_l67_g139 Data_Not_Eq($r13, r2) L_l67_g139a
+L_l67_g139 Data_Eq($r13, r2) L_l67_g139b
+L_l67_g139a Set_Null_L($r13) L_l73_g146
+L_l67_g139b Set_Null_L($r13) L_l68_g140
+
 
 // line 68 : $r14 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l68_g140 Get_head($r14, r0) L_l68_g141
@@ -288,8 +296,10 @@ L_l86_g163 Get_head($r17, r0) L_l86_g166
 //L_l86_g165 Set_Null_L($r17) L_l86_g166
 
 // line 86 : if $i6 <= i1 goto r19 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfStmt)
-L_l86_g166 Less_Equal_Priority_L($r17, r2) L_l97_g178
-L_l86_g166 Greater_Priority_L($r17, r2) L_l87_g167
+L_l86_g166 Less_Equal_Priority_L($r17, r2) L_l86_g166a
+L_l86_g166 Greater_Priority_L($r17, r2) L_l86_g166b
+L_l86_g166a Set_Null_L($r17) L_l97_g178
+L_l86_g166b Set_Null_L($r17) L_l87_g167
 
 // line 87 : $r18 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l87_g167 Get_head($r18, r0) L_l87_g168
