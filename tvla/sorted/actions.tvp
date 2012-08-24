@@ -317,25 +317,25 @@
 %action Set_removed_True(lhs) {
   %t lhs + " = true"
   {
-	removed(v) = lhs(v)
+	removed() = 1
   }
 }
 
 %action Set_removed_False() {
   %t lhs + " = false"
   {
-	removed(v) = 0
+	removed() = 0
   }
 }
 
 %action isTrue() {
   %t lhs + " == true"
-  %p E(v) removed(v)
+  %p removed()
 }
 
 %action isFalse() {
   %t lhs + " == false"
-  %p !(E(v) removed(v))
+  %p !removed()
 }
 
 //////////////////////

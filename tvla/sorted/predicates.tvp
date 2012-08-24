@@ -51,7 +51,8 @@ foreach (z in PVar) {
 %p returnedElement(v)
 
 // boolean removed = false;
-%p removed(v)
+%p removed()
+
 
 /////////////////////////////////////
 // Predicates related to numeric data for priorities
