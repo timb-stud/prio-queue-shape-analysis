@@ -49,11 +49,11 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 		// Insert after head
 		if (head.next == null) {
-			if (head.data == data) {
+			if (head.data == qe.data) {
 				head.priority = priority; //update set_priority action
 				return false;
 			} else {
-				if (head.priority > priority) {
+				if (head.priority > qe.priority) {
 					qe.next = head;
 					head = qe;
 				} else {
@@ -64,16 +64,16 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 
 		// Override head data
-		if (head.data == data) {
+		if (head.data == qe.data) {
 			head.priority = priority; //update set_priority action
 			return false;
 		}
 
 		//Remove item with equal data
 		QueueElement pre = head;
-		QueueElement current = head.next;
+		QueueElement current = head.next; //r21
 		while(current != null && !removed){
-			if(current.data == data){
+			if(current.data == qe.data){
 				pre.next = current.next;
 				current.next = null;
 				removed = true;
@@ -83,7 +83,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 		
 		// Insert before head
-		if (head.priority > priority) {
+		if (head.priority > qe.priority) {
 			qe.next = head;
 			head = qe;
 			if(removed){
@@ -97,7 +97,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		pre = head;
 		current = head.next;
 		while(current != null){
-			if(current.priority > priority){
+			if(current.priority > qe.priority){
 				pre.next = qe;
 				qe.next = current;
 				if(removed){
@@ -111,7 +111,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 
 		// Insert beyond tail
-		if (priority > pre.priority) {
+		if (qe.priority > pre.priority) {
 			pre.next = qe;
 			qe.next = null;
 		}
@@ -122,7 +122,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			return true;
 		}
 	}
-
+	
 	public boolean enqueueGilles(int data, int priority) {
 
 		QueueElement newNode = new QueueElement(data, priority);
