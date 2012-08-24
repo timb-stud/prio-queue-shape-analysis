@@ -19,7 +19,7 @@ foreach (z in PVar) {
 
 // The is[n] predicate holds for list elements pointed by two different
 // list elements.
-%i is[n](v) = E(v_1, v_2) (v_1 != v_2 & n(v_1, v) & n(v_2, v))
+%i is[n](v) = E(v_1, v_2) (v_1 != v_2 & n(v_1, v) & n(v_2, v)) nonabs
 
 // The t[n] predicate records transitive reflexive reachability between
 // list elements along the n field.
