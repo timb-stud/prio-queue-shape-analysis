@@ -382,7 +382,7 @@ L_l102_g188 Set_next_Null(r2) L_l102_i1_g350
 L_l102_i1_g350  Set_next(r2, r21) L_l102_g189
 
 // line 102 : r21 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l102_g189 Skip() L_l102_g190
+L_l102_g189 Set_Null_L(r21) L_l102_g190
 
 // line 102 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l102_g190 Skip() L_l103_g191
