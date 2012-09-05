@@ -1,0 +1,27 @@
+// An acyclic singly-linked list with two or more elements pointed by program x.
+%n = {head, tail, queue}
+%p = {
+       sm = {tail:1/2}
+       n = {queue -> head, head->tail:1/2, tail->tail:1/2}
+	   $this = {queue}
+       t[n] = {queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
+	   r[n,$this] = {queue, head, tail}
+	   deq = {queue->queue, head->head, tail->tail:1/2}
+	   peq = {queue->queue, head->head, tail->tail:1/2}
+	   ple = {queue->queue, head->head, tail->tail:1/2, head->tail, head->queue:1/2, tail->queue:1/2, queue->head:1/2, queue->tail:1/2}
+	   inOrder[ple,n] = {queue, head, tail}
+       inROrder[ple,n] = {queue:1/2, head:1/2, tail:1/2}
+}
+
+// An empty list (x points to NULL).
+%n = {queue}
+%p = {
+	t[n] = {queue->queue}
+	$this = {queue}
+	r[n,$this]= {queue}
+	deq = {queue->queue}
+	peq = {queue->queue}
+	ple = {queue->queue}
+	inOrder[ple,n] = {queue}
+	inROrder[ple,n] = {queue}
+}
