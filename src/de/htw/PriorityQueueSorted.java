@@ -80,7 +80,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			}
 			pre = current;
 			current = current.next;
-		}
+		} //try to set helper variables to null. others maybe two pointers could point to same node --> is[n] //pre = null; //current = null;
 		
 		// Insert before head
 		if (head.priority > qe.priority) {
