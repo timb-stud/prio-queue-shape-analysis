@@ -1,36 +1,18 @@
 // An acyclic singly-linked list with two or more elements pointed by program x.
-%n = {head, tail, queue, data}
+%n = {head, tail, queue}
 %p = {
-	   i0 = {data}
        sm = {tail:1/2}
        n = {queue -> head, head->tail:1/2, tail->tail:1/2}
 	   $this = {queue}
-       t[n] = {data->data, queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
+       t[n] = {queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
 	   r[n,$this] = {queue, head, tail}
-	   r[n,i0] = {data}
-	   deq = {data->data, queue->queue, head->head, tail->tail:1/2, data->head:1/2, head->data:1/2, data->tail:1/2, tail->data:1/2}
-}
-
-// An acyclic singly-linked list with a single element pointed by x.
-%n = {head, queue, data}
-%p = {
-	   i0 = {data}
-	   n = {queue->head}
-	   $this = {queue}
-       t[n] = {queue->queue, queue->head, head->head, data->data}
-	   r[n,$this] = {queue, head}
-	   r[n,i0] = {data}
-	   deq = {queue->queue, head->head, data->data, head->data:1/2, data->head:1/2}
 }
 
 
 // An empty list (x points to NULL).
-%n = {queue, data}
+%n = {queue}
 %p = {
-	i0 = {data}
-	t[n] = {queue->queue, data->data}
+	t[n] = {queue->queue}
 	$this = {queue}
 	r[n,$this]= {queue}
-	r[n, i0] = {data}
-	deq = {queue->queue, data->data}
 }

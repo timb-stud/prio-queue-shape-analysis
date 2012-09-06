@@ -3,7 +3,7 @@
 
 %s PVar {$r1, $r6, $r7, $r8, $r9, $parameter0, $this, $return, z0, z1, $i2, $i3, $i4, $parameter0, $parameter1, $return, i0, i1, r0, r1, r2, r3, r4, r5, $r2}
 
-#include "predicates.tvp"
+#include "peek_predicates.tvp"
 
 %%
 
@@ -40,7 +40,7 @@ L_l18_g43 Skip() L_l18_g44
 
 // line 18 : return 0 (ReturnStmt)
 L_l18_g44 Skip() L_l18_i1_g60
-L_l18_i1_g60 Skip() exit_false
+L_l18_i1_g60 Skip() exit_zero 
 
 
 // line 19 : $r2 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
@@ -63,11 +63,11 @@ L_l19_g49 Skip() L_l19_g50
 
 // line 19 : return $i0 (ReturnStmt)
 L_l19_g50 Skip() L_l19_i1_g70
-L_l19_i1_g70 Skip() exit_true
+L_l19_i1_g70 Skip() exit_$i0
 
 
-exit_true Skip() exit
-exit_false Skip() exit
+exit_zero Skip() exit
+exit_$i0 Skip() exit
 
 exit Assert_ListInvariants($this) error
 exit Assert_No_Leak($this)        error
