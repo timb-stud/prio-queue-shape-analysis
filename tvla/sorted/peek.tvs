@@ -1,17 +1,16 @@
 // An acyclic singly-linked list with two or more elements pointed by program x.
 %n = {head, tail, queue}
 %p = {
-       sm = {tail:1/2}
-       n = {queue -> head, head->tail:1/2, tail->tail:1/2}
-	 $this = {queue}
-       t[n] = {queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
-	 r[n,$this] = {queue, head, tail}
-	 deq = {queue->queue, head->head, tail->tail:1/2}
-	 peq = {queue->queue, head->head, tail->tail:1/2}
-
-       inOrder[dle,n] = {queue, head, tail}
-       inROrder[dle,n] = {queue:1/2, head:1/2, tail:1/2}
-       dle = {queue->queue, queue->head, queue->tail, tail->tail:1/2, tail->head:1/2, tail->queue:1/2, head->tail, head->head, head->queue}
+	sm = {tail:1/2}
+    n = {queue -> head, head->tail:1/2, tail->tail:1/2}
+	$this = {queue}
+    t[n] = {queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
+	r[n,$this] = {queue, head, tail}
+	deq = {queue->queue, head->head, tail->tail:1/2}
+	peq = {queue->queue, head->head, tail->tail:1/2}
+    inOrder[dle,n] = {queue, head, tail}
+    inROrder[dle,n] = {queue:1/2, head:1/2, tail:1/2}
+    dle = {queue->queue, queue->head, queue->tail, tail->tail:1/2, tail->head:1/2, tail->queue:1/2, head->tail, head->head, head->queue}
 
 }
 
@@ -23,8 +22,7 @@
 	r[n,$this]= {queue}
 	deq = {queue->queue}
 	peq = {queue->queue}
-
-      inOrder[dle,n] = {queue}
-      inROrder[dle,n] = {queue}
-      dle = {queue->queue}
+    inOrder[dle,n] = {queue}
+    inROrder[dle,n] = {queue}
+    dle = {queue->queue}
 }
