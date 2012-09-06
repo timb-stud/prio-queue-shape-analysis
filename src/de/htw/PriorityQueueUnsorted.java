@@ -10,7 +10,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 * Referenz auf das erste Element der Queue bzw. null, falls die Queue keine
 	 * Elemente enthaelt, d.h. leer ist.
 	 */
-	protected QueueElement head;
+	public QueueElement head;
 
 	public PriorityQueueUnsorted() {
 		this.head = null;
@@ -48,22 +48,20 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 */
 	@Override
 	public int dequeue() {
-		int result = 0;
+		QueueElement maxPrioElm = null;
 		if (head != null) {
-			QueueElement preDequeueElm = head;
-			QueueElement pre = head;
-			result = head.data;
-			if (preDequeueElm.next == null) {
+			maxPrioElm = head;
+			if (maxPrioElm.next == null) {
 				head = null;
-				return result;
+				return maxPrioElm.data;
 			}
 
-			int maxPrio = head.priority;
+			QueueElement preDequeueElm = head;
+			QueueElement pre = head;
 			QueueElement current = head;
 			while (current != null) {
-				if (current.priority < maxPrio) {
-					maxPrio = current.priority;
-					result = current.data;
+				if (current.priority < maxPrioElm.priority) {
+					maxPrioElm = current;
 					preDequeueElm = pre;
 				}
 				pre = current;
@@ -71,7 +69,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 			}
 
 			QueueElement dequeueElm;
-			if (preDequeueElm.priority == maxPrio) {
+			if (preDequeueElm.priority == maxPrioElm.priority) {
 				dequeueElm = head;
 				head = dequeueElm.next;
 			} else
@@ -83,8 +81,10 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 			} else {
 				preDequeueElm.next = null;
 			}
+			return maxPrioElm.data;
+		} else {
+			return 0;
 		}
-		return result;
 	}
 
 	/*
