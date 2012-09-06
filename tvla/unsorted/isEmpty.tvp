@@ -3,7 +3,7 @@
 
 %s PVar {$r1, $this, r0, r1}
 
-#include "predicates.tvp"
+#include "isEmpty_predicates.tvp"
 
 %%
 
