@@ -3,7 +3,7 @@
 
 %s PVar {$r1, $r2, $r3, $r4, $parameter0, $this, $i0, $return, r0, r1, r2}
 
-#include "predicates.tvp"
+#include "dequeue_predicates.tvp"
 
 %%
 
@@ -76,7 +76,8 @@ L_l31_g68 Set_head_Null(r0) L_l31_g69
 L_l31_g69 Set_Null_L(r0) L_l33_g70
 
 // line 33 : $i0 = r1.<de.htw.QueueElement: int data> (AssignStmt)
-L_l33_g70 Skip() L_l33_g71
+L_l33_g70 Skip() L_l33_g70a
+L_l33_g70a Set_returnedElement(r1) L_l33_g71
 
 // line 33 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l33_g71 Set_Null_L(r1) L_l33_g72
