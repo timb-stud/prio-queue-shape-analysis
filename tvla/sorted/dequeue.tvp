@@ -1,7 +1,7 @@
 ///////
 // Sets
 
-%s PVar {$r1, $r2, $r3, $r4, $parameter0, $this, int_$i0, int_$return, r0, r1, r2}
+%s PVar {$r1, $r2, $r3, $r4, $parameter0, $this, $i0, $return, r0, r1, r2}
 
 #include "predicates.tvp"
 
@@ -12,7 +12,7 @@
 %%
 
 ////////////////////////////////////////////////////////////////////////////
-// enqueue()
+// dequeue()
 //
 
 
@@ -34,7 +34,7 @@ L_l25_g56 Skip() L_l25_g57
 
 // line 25 : return 0 (ReturnStmt)
 L_l25_g57 Skip() L_l25_i1_g83
-L_l25_i1_g83 Skip() L_lx_g81
+L_l25_i1_g83 Skip() exit_zero 
 
 
 // line 26 : r1 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
@@ -86,11 +86,11 @@ L_l33_g72 Skip() L_l33_g73
 
 // line 33 : return $i0 (ReturnStmt)
 L_l33_g73 Skip() L_l33_i1_g104
-L_l33_i1_g104 Skip() L_lx_g102
+L_l33_i1_g104 Skip() exit_$i0
 
 
-exit_true Skip() exit
-exit_false Skip() exit
+exit_zero Skip() exit
+exit_$i0 Skip() exit
 
 //%%
 
