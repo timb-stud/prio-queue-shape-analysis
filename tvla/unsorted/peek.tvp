@@ -63,7 +63,8 @@ L_l35_g53 Less_Equal_Priority_L(r1, r2) L_l39_g55
 L_l35_g53 Greater_Priority_L(r1, r2) L_l36_g54
 
 // line 36 : r1 = r2 (AssignRefToRefStmt)
-L_l36_g54 Copy_Var_L(r1, r2) L_l39_g55
+L_l36_g54 Copy_Var_L(r1, r2) L_l36_g54a
+L_l36_g54a Set_maxPrio(r1) L_l39_g55
 
 // line 39 : r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
 L_l39_g55 Get_next(r2, r2) L_l34_g56
