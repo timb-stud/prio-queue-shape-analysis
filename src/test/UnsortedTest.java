@@ -173,6 +173,79 @@ public class UnsortedTest extends Assert {
 		}
 		return sb.toString();
 	}
-	
 
+	@Test
+	public void dequeueElm1(){
+		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
+		QueueElement qe1 = new QueueElement(1, 5);
+		QueueElement qe2 = new QueueElement(12, 10);
+		QueueElement qe3 = new QueueElement(123, 15);
+		QueueElement qe4 = new QueueElement(1234, 1);
+		QueueElement qe5 = new QueueElement(12345, 6);
+
+		qe5.next = qe4;
+		qe4.next = qe3;
+		qe3.next = qe2;
+		qe2.next = qe1;
+		
+		assertTrue(pq.enqueue(qe1.data, qe1.priority));
+		assertTrue(pq.enqueue(qe2.data, qe2.priority));
+		assertTrue(pq.enqueue(qe3.data, qe3.priority));
+		assertTrue(pq.enqueue(qe4.data, qe4.priority));
+		assertTrue(pq.enqueue(qe5.data, qe5.priority));
+		
+		assertListEquals(qe5, pq.head);
+		
+		assertEquals(1234, pq.dequeue());
+		assertEquals(1, pq.dequeue());
+		assertEquals(12345, pq.dequeue());
+		assertEquals(12, pq.dequeue());
+		assertEquals(123, pq.dequeue());
+	}
+
+	@Test
+	public void dequeueOneElmQueue1(){
+		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
+		QueueElement qe1 = new QueueElement(1, 5);
+
+		qe1.next = null;
+		
+		assertTrue(pq.enqueue(qe1.data, qe1.priority));
+		
+		assertListEquals(qe1, pq.head);
+		
+		assertEquals(1, pq.dequeue());
+	}
+	
+	@Test //first elm is max prio
+	public void dequeueTwoElmQueue1(){
+		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
+		QueueElement qe1 = new QueueElement(1, 5);
+		QueueElement qe2 = new QueueElement(3, 2);
+
+		qe2.next = qe1;
+		
+		assertTrue(pq.enqueue(qe1.data, qe1.priority));
+		assertTrue(pq.enqueue(qe2.data, qe2.priority));
+		
+		assertListEquals(qe2, pq.head);
+		
+		assertEquals(3, pq.dequeue());
+	}
+	
+	@Test //last elm is max prio
+	public void dequeueTwoElmQueue2(){
+		PriorityQueueUnsorted pq = new PriorityQueueUnsorted();
+		QueueElement qe1 = new QueueElement(1, 5);
+		QueueElement qe2 = new QueueElement(3, 7);
+
+		qe2.next = qe1;
+		
+		assertTrue(pq.enqueue(qe1.data, qe1.priority));
+		assertTrue(pq.enqueue(qe2.data, qe2.priority));
+		
+		assertListEquals(qe2, pq.head);
+		
+		assertEquals(1, pq.dequeue());
+	}
 }
