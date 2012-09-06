@@ -171,6 +171,16 @@
 	}
 }
 
+%action Set_maxPrio(lhs) {
+	%t "return " + lhs + ".data" 
+	%f { lhs(v) }
+	%message (!E(v) lhs(v)) ->
+           "Illegal dereference to data component of " + lhs
+    {
+		maxPrio(v) = lhs(v)
+	}
+}
+
 //////////////////////////////////////////////////////////////////
 // Actions needed to simulate program conditions involving pointer
 // equality tests.
