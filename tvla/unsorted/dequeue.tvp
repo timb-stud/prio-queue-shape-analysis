@@ -35,7 +35,7 @@ L_l52_g46 Skip() L_l52_g47
 
 // line 52 : return 0 (ReturnStmt)
 L_l52_g47 Skip() L_l52_i1_g110
-L_l52_i1_g110 Skip() L_lx_g108
+L_l52_i1_g110 Skip() exit_zero 
 
 
 // line 55 : r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
@@ -68,7 +68,7 @@ L_l58_g56 Skip() L_l58_g57
 
 // line 58 : return $i0 (ReturnStmt)
 L_l58_g57 Skip() L_l58_i1_g124
-L_l58_i1_g124 Skip() L_lx_g122
+L_l58_i1_g124 Skip() exit_data 
 
 
 // line 61 : r2 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
@@ -158,7 +158,7 @@ L_l77_g84 Skip() L_l77_g85
 
 // line 77 : return $i5 (ReturnStmt)
 L_l77_g85 Skip() L_l77_i1_g157
-L_l77_i1_g157 Skip() L_lx_g155
+L_l77_i1_g157 Skip() exit_data 
 
 
 // line 80 : $r10 = r1.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
@@ -207,14 +207,11 @@ L_l86_g99 Skip() L_l86_g100
 
 // line 86 : return $i6 (ReturnStmt)
 L_l86_g100 Skip() L_l86_i1_g177
-L_l86_i1_g177 Skip() L_lx_g175
+L_l86_i1_g177 Skip() exit_data 
 
 
-exit_true Skip() exit
-exit_false Skip() exit
-
-exit Assert_ListInvariants($this) error
-exit Assert_No_Leak($this)        error
+exit_zero Skip() exit
+exit_data Skip() exit
 
 %%
 
