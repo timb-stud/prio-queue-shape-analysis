@@ -1,8 +1,8 @@
 ///////
 // Sets
 
-%s PVar {$r1, $r10, $r11, $r5, $r6, $r7, $r8, $r9, $parameter0, $this, int_$i0, int_$i1, 
-    int_$i2, int_$i3, int_$i4, int_$i5, int_$i6, int_$return, r0, r1, r2, r3, r4}
+%s PVar {$r1, $r10, $r11, $r5, $r6, $r7, $r8, $r9, $parameter0, $this, $i0, $i1, 
+    $i2, $i3, $i4, $i5, $i6, $return, r0, r1, r2, r3, r4}
 
 #include "dequeue_predicates.tvp"
 
@@ -24,11 +24,15 @@ L_lx_g42 Copy_Var_L(r0, $this) L_l51_g43
 L_l51_g43 Get_head($r5, r0) L_l51_g44
 
 // line 51 : if $r5 != null goto r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (IfEqualToNullStmt)
-L_l51_g44 Is_Null_Var($r5) L_l51_g45
-L_l51_g44 Is_Not_Null_Var($r5) L_l55_g48
+L_l51_g44 Is_Null_Var($r5) L_l51_g44a
+L_l51_g44 Is_Not_Null_Var($r5) L_l51_g44b
+L_l51_g44a Set_Null_L($r5) L_l51_g45
+L_l51_g44b Set_Null_L($r5) L_l55_g48
 
 // line 51 : $r5 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l51_g45 Set_Null_L($r5) L_l52_g46
+//L_l51_g45 Set_Null_L($r5) L_l52_g46
+L_l51_g45 Skip() L_l52_g46
+
 
 // line 52 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
 L_l52_g46 Skip() L_l52_g47
@@ -45,11 +49,14 @@ L_l55_g48 Get_head(r1, r0) L_l56_g49
 L_l56_g49 Get_next($r6, r1) L_l56_g50
 
 // line 56 : if $r6 != null goto r2 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (IfEqualToNullStmt)
-L_l56_g50 Is_Null_Var($r6) L_l56_g51
-L_l56_g50 Is_Not_Null_Var($r6) L_l61_g58
+L_l56_g50 Is_Null_Var($r6) L_l56_g50a
+L_l56_g50 Is_Not_Null_Var($r6) L_l56_g50b
+L_l56_g50a Set_Null_L($r6) L_l56_g51
+L_l56_g50b Set_Null_L($r6) L_l61_g58
 
 // line 56 : $r6 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l56_g51 Set_Null_L($r6) L_l57_g52
+//L_l56_g51 Set_Null_L($r6) L_l57_g52
+L_l56_g51 Skip() L_l57_g52
 
 // line 57 : r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> = null (AssignNullToInstanceFieldRefStmt)
 L_l57_g52 Set_head_Null(r0) L_l57_g53
@@ -61,13 +68,15 @@ L_l57_g53 Set_Null_L(r0) L_l58_g54
 L_l58_g54 Skip() L_l58_g55
 
 // line 58 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l58_g55 Set_Null_L(r1) L_l58_g56
+//L_l58_g55 Set_Null_L(r1) L_l58_g56
+L_l58_g55 Skip() L_l58_g56
+
 
 // line 58 : $return = $i0 [J2TVLA callee return assignment] (AssignStmt)
 L_l58_g56 Skip() L_l58_g57
 
 // line 58 : return $i0 (ReturnStmt)
-L_l58_g57 Skip() L_l58_i1_g124
+L_l58_g57 Set_returnedElement(r1) L_l58_i1_g124
 L_l58_i1_g124 Skip() exit_data 
 
 
@@ -215,4 +224,4 @@ exit_data Skip() exit
 
 %%
 
-L_lx_g42
+L_lx_g42, L_l56_g51,  L_l58_i1_g124
