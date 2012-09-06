@@ -10,7 +10,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 * Referenz auf das erste Element der Queue bzw. null, falls die Queue keine
 	 * Elemente enthaelt, d.h. leer ist.
 	 */
-	protected QueueElement head;
+	public QueueElement head;
 
 	public PriorityQueueUnsorted() {
 		this.head = null;
@@ -48,43 +48,43 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 */
 	@Override
 	public int dequeue() {
-		int result = 0;
+		QueueElement deqElmWithMaxPrio = null;
 		if (head != null) {
-			QueueElement preDequeueElm = head;
-			QueueElement pre = head;
-			result = head.data;
-			if (preDequeueElm.next == null) {
+			deqElmWithMaxPrio = head;
+			if (deqElmWithMaxPrio.next == null) {
 				head = null;
-				return result;
+				return deqElmWithMaxPrio.data;
 			}
 
-			int maxPrio = head.priority;
+			QueueElement preDequeueElm = head;
+			QueueElement pre = head;
 			QueueElement current = head;
 			while (current != null) {
-				if (current.priority < maxPrio) {
-					maxPrio = current.priority;
-					result = current.data;
+				if (current.priority < deqElmWithMaxPrio.priority) {
+					deqElmWithMaxPrio = current;
 					preDequeueElm = pre;
 				}
 				pre = current;
 				current = current.next;
 			}
 
-			QueueElement dequeueElm;
-			if (preDequeueElm.priority == maxPrio) {
-				dequeueElm = head;
-				head = dequeueElm.next;
-			} else
-				dequeueElm = preDequeueElm.next;
-
-			if (dequeueElm.next != null) {
-				preDequeueElm.next = dequeueElm.next;
-				dequeueElm.next = null;
-			} else {
+			// maxPrio is first element
+			if (head.priority == deqElmWithMaxPrio.priority) {
+				head = head.next;
+				deqElmWithMaxPrio.next = null;
+				return deqElmWithMaxPrio.data;
+			} 
+			//maxPrio is not first and last element
+			if (deqElmWithMaxPrio.next != null) {
+				preDequeueElm.next = deqElmWithMaxPrio.next;
+				deqElmWithMaxPrio.next = null;
+			} else { //maxPrio is last element
 				preDequeueElm.next = null;
 			}
+			return deqElmWithMaxPrio.data;
+		} else {
+			return 0;
 		}
-		return result;
 	}
 
 	/*
