@@ -6,7 +6,7 @@
     $i4, $i5, $i6, $i7, $i8, $parameter0, $parameter1, 
     $return, i0, i1, r0, r19, r2, r21, r3, r4}
 
-#include "predicates.tvp"
+#include "enqueue_predicates.tvp"
 
 %%
 
