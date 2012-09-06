@@ -48,40 +48,40 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 */
 	@Override
 	public int dequeue() {
-		QueueElement maxPrioElm = null;
+		QueueElement deqElmWithMaxPrio = null;
 		if (head != null) {
-			maxPrioElm = head;
-			if (maxPrioElm.next == null) {
+			deqElmWithMaxPrio = head;
+			if (deqElmWithMaxPrio.next == null) {
 				head = null;
-				return maxPrioElm.data;
+				return deqElmWithMaxPrio.data;
 			}
 
 			QueueElement preDequeueElm = head;
 			QueueElement pre = head;
 			QueueElement current = head;
 			while (current != null) {
-				if (current.priority < maxPrioElm.priority) {
-					maxPrioElm = current;
+				if (current.priority < deqElmWithMaxPrio.priority) {
+					deqElmWithMaxPrio = current;
 					preDequeueElm = pre;
 				}
 				pre = current;
 				current = current.next;
 			}
 
-			QueueElement dequeueElm;
-			if (preDequeueElm.priority == maxPrioElm.priority) {
-				dequeueElm = head;
-				head = dequeueElm.next;
-			} else
-				dequeueElm = preDequeueElm.next;
-
-			if (dequeueElm.next != null) {
-				preDequeueElm.next = dequeueElm.next;
-				dequeueElm.next = null;
-			} else {
+			// maxPrio is first element
+			if (head.priority == deqElmWithMaxPrio.priority) {
+				head = head.next;
+				deqElmWithMaxPrio.next = null;
+				return deqElmWithMaxPrio.data;
+			} 
+			//maxPrio is not first and last element
+			if (deqElmWithMaxPrio.next != null) {
+				preDequeueElm.next = deqElmWithMaxPrio.next;
+				deqElmWithMaxPrio.next = null;
+			} else { //maxPrio is last element
 				preDequeueElm.next = null;
 			}
-			return maxPrioElm.data;
+			return deqElmWithMaxPrio.data;
 		} else {
 			return 0;
 		}
