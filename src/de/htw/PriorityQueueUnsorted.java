@@ -48,43 +48,42 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 */
 	@Override
 	public int dequeue() {
-		QueueElement deqElmWithMaxPrio = null;
-		if (head != null) {
-			deqElmWithMaxPrio = head;
-			if (deqElmWithMaxPrio.next == null) {
-				head = null;
-				return deqElmWithMaxPrio.data;
-			}
-
-			QueueElement preDequeueElm = head;
-			QueueElement pre = head;
-			QueueElement current = head;
-			while (current != null) {
-				if (current.priority < deqElmWithMaxPrio.priority) {
-					deqElmWithMaxPrio = current;
-					preDequeueElm = pre;
-				}
-				pre = current;
-				current = current.next;
-			}
-
-			// maxPrio is first element
-			if (head.priority == deqElmWithMaxPrio.priority) {
-				head = head.next;
-				deqElmWithMaxPrio.next = null;
-				return deqElmWithMaxPrio.data;
-			} 
-			//maxPrio is not first and last element
-			if (deqElmWithMaxPrio.next != null) {
-				preDequeueElm.next = deqElmWithMaxPrio.next;
-				deqElmWithMaxPrio.next = null;
-			} else { //maxPrio is last element
-				preDequeueElm.next = null;
-			}
-			return deqElmWithMaxPrio.data;
-		} else {
+		if(head == null){
 			return 0;
 		}
+		
+		QueueElement deqElmWithMaxPrio = head;
+		if (deqElmWithMaxPrio.next == null) {
+			head = null;
+			return deqElmWithMaxPrio.data;
+		}
+
+		QueueElement preDequeueElm = head;
+		QueueElement pre = head;
+		QueueElement current = head;
+		while (current != null) {
+			if (current.priority < deqElmWithMaxPrio.priority) {
+				deqElmWithMaxPrio = current;
+				preDequeueElm = pre;
+			}
+			pre = current;
+			current = current.next;
+		}
+
+		// maxPrio is first element
+		if (head.priority == deqElmWithMaxPrio.priority) {
+			head = head.next;
+			deqElmWithMaxPrio.next = null;
+			return deqElmWithMaxPrio.data;
+		} 
+		//maxPrio is not first and last element
+		if (deqElmWithMaxPrio.next != null) {
+			preDequeueElm.next = deqElmWithMaxPrio.next;
+			deqElmWithMaxPrio.next = null;
+		} else { //maxPrio is last element
+			preDequeueElm.next = null;
+		}
+		return deqElmWithMaxPrio.data;
 	}
 
 	/*
