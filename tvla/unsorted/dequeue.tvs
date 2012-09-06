@@ -8,9 +8,21 @@
 	r[n,$this] = {queue, head, tail}
 	peq = {queue->queue, head->head, tail->tail:1/2}
 	maxPrio={head}
-
 	ple = {queue->queue, queue->head, queue->tail, tail->tail:1/2, tail->head:1/2, tail->queue:1/2, head->tail:1/2, head->head:1/2, head->queue:1/2}
 
+}
+
+	
+// An acyclic singly-linked list with a single element pointed by x.
+%n = {head, queue}
+%p = {
+	   n = {queue->head}
+	   $this = {queue}
+       t[n] = {queue->queue, queue->head, head->head}
+	   r[n,$this] = {queue, head}
+	   peq = {queue->queue, head->head}
+	   ple = {queue->queue, queue->head, head->head:1/2, head->queue:1/2}
+	   maxPrio={head}
 }
 
 // An empty list (x points to NULL).
