@@ -26,15 +26,15 @@ L_lx_g53 Skip() L_lx_g54
 L_lx_g54 Skip() L_l92_g58
 
 // line 89 : if i0 > 0 goto $r4 = new de.htw.QueueElement (IfStmt)
-L_l89_g55 Skip() L_l92_g58
-L_l89_g55 Skip() L_l90_g56
+//L_l89_g55 Skip() L_l92_g58
+//L_l89_g55 Skip() L_l90_g56
 
 // line 90 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
-L_l90_g56 Skip() L_l90_g57
+//L_l90_g56 Skip() L_l90_g57
 
 // line 90 : return 0 (ReturnStmt)
-L_l90_g57 Skip() L_l90_i1_g96
-L_l90_i1_g96 Skip() exit_false 
+//L_l90_g57 Skip() L_l90_i1_g96
+//L_l90_i1_g96 Skip() exit_false 
 
 
 // line 92 : $r4 = new de.htw.QueueElement (AssignNewClassStmt)

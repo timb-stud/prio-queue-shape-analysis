@@ -94,8 +94,8 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 	 */
 	@Override
 	public boolean enqueue(int data, int priority) {
-		if (data <= 0)
-			return false;
+//		if (data <= 0)
+//			return false;
 
 		QueueElement newElement = new QueueElement();
 		newElement.data = data;
