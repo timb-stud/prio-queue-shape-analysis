@@ -71,7 +71,7 @@ public class PriorityQueueUnsorted implements IPriorityQueue {
 		}
 
 		// maxPrio is first element
-		if (head.priority == deqElmWithMaxPrio.priority) {
+		if (head == deqElmWithMaxPrio) {
 			head = head.next;
 			deqElmWithMaxPrio.next = null;
 			return deqElmWithMaxPrio.data;
