@@ -62,6 +62,16 @@ foreach (z in PVar) {
 // The predicate dle holds for two list elements if the numeric value
 // in the data field of the first element is less or equal to the value
 // in the data field of the second element.
+%p dle(v_1, v_2) transitive reflexive
+
+// The following integrity constraint means that dle is anti-symmetric
+// and together with the functional properties above (transitive and reflezive)
+// we get that dle is a total order.
+%r !dle(v_1, v_2) ==> dle(v_2, v_1)
+
+// The predicate dle holds for two list elements if the numeric value
+// in the data field of the first element is less or equal to the value
+// in the data field of the second element.
 %p ple(v_1, v_2) transitive reflexive
 
 // The following integrity constraint means that dle is anti-symmetric
@@ -79,6 +89,17 @@ foreach (z in PVar) {
 // Similar to inOrder but captures the opposite correlation between the
 // next element and the value of data.
 %i inROrder[ple,n](v) = A(v_1) n(v, v_1) -> ple(v_1, v) nonabs
+
+// The predicate inOrder[del,n] holds for a list element, if it points,
+// via the field n, to a list element whose data field is less or equal
+// to the value of its data field.
+// The nonabs property means that this predicate is not used for abstracting
+// structures.  This is done for performance reasons.
+%i inOrder[dle,n](v) = A(v_1) n(v, v_1) -> dle(v, v_1) nonabs
+
+// Similar to inOrder but captures the opposite correlation between the
+// next element and the value of data.
+%i inROrder[dle,n](v) = A(v_1) n(v, v_1) -> dle(v_1, v) nonabs
 
 // The predicate or[n,z,l] is used to take a snapshot of the part of the
 // heap reachable from pointer variable z via dereferences of field n
