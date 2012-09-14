@@ -190,7 +190,7 @@ L_l81_g89 Get_next($r11, r1) L_l81_g90
 
 // line 81 : r2.<de.htw.QueueElement: de.htw.QueueElement next> = $r11 (AssignRefToInstanceFieldRefStmt)
 L_l81_g90 Set_next_Null(r2) L_l81_i1_g164
-L_l81_i1_g164  Set_next(r2, $r11) L_l81_g91
+L_l81_i1_g164  Set_next(r2, $r11) L_l82_g93
 
 // line 81 : r2 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l81_g91 Set_Null_L(r2) L_l81_g92
