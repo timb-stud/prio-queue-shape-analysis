@@ -29,6 +29,29 @@ public class SortedTest extends Assert {
 		assertTrue(pq.enqueue(qe5.data, qe5.priority));
 		assertListEquals(qe4, pq.head);
 	}
+	
+	@Test
+	public void addLastWithSamePrio() {
+		PriorityQueueSorted pq = new PriorityQueueSorted();
+		QueueElement qe1 = new QueueElement(1, 5);
+		QueueElement qe2 = new QueueElement(12, 10);
+		QueueElement qe3 = new QueueElement(123, 15);
+		QueueElement qe4 = new QueueElement(1234, 1);
+		QueueElement qe5 = new QueueElement(12345, 6);
+		QueueElement qe6 = new QueueElement(121233, 15);
+		qe4.next = qe1;
+		qe1.next = qe5;
+		qe5.next = qe2;
+		qe2.next = qe3;
+		qe3.next = qe6;
+		assertTrue(pq.enqueue(qe1.data, qe1.priority));
+		assertTrue(pq.enqueue(qe2.data, qe2.priority));
+		assertTrue(pq.enqueue(qe3.data, qe3.priority));
+		assertTrue(pq.enqueue(qe4.data, qe4.priority));
+		assertTrue(pq.enqueue(qe5.data, qe5.priority));
+		assertTrue(pq.enqueue(qe6.data, qe6.priority));
+		assertListEquals(qe4, pq.head);
+	}
 
 	@Test
 	public void elements2() {
