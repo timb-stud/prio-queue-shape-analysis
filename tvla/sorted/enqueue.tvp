@@ -209,20 +209,20 @@ L_l67_g136 Get_head($r13, r0) L_l67_g139
 //L_l67_g138 Set_Null_L($r13) L_l67_g139
 
 // line 67 : if $i4 != i0 goto r3 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (IfStmt)
-L_l67_g139 Data_Not_Eq($r13, r2) L_l67_g139a
-L_l67_g139 Data_Eq($r13, r2) L_l67_g139b
-L_l67_g139a Set_Null_L($r13) L_l73_g146
-L_l67_g139b Set_Null_L($r13) L_l68_g140
+L_l67_g139 Data_Not_Eq($r13, r2) L_l73_g146
+L_l67_g139 Data_Eq($r13, r2) L_l68_g140
 
 
 // line 68 : $r14 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
-L_l68_g140 Get_head($r14, r0) L_l68_g141
+//L_l68_g140 Get_head($r14, r0) L_l68_g141
+L_l68_g140 Skip() L_l68_g141
 
 // line 68 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l68_g141 Skip() L_l68_g142
 
 // line 68 : $r14.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
-L_l68_g142 Set_priority($r14, i1) L_l68_g143
+//L_l68_g142 Set_priority($r14, i1) L_l68_g143
+L_l68_g142 Set_priority($r13, i1) L_l68_g143
 
 // line 68 : $r14 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l68_g143 Skip() L_l69_g144
