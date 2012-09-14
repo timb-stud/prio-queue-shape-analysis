@@ -139,5 +139,5 @@ L_l110_i1_g137 Skip() exit_true
 exit_true Skip() exit
 exit_false Skip() exit
 
-exit Assert_ListInvariants($this) error
-exit Assert_No_Leak($this)        error
+//exit Assert_ListInvariants($this) error
+//exit Assert_No_Leak($this)        error
