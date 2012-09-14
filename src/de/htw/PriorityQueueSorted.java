@@ -93,7 +93,7 @@ public class PriorityQueueSorted implements IPriorityQueue {
 			}
 		}
 		
-		//Add item (always!!!)
+		//Add item to middle
 		pre = head;
 		current = head.next;
 		while(current != null){
@@ -111,10 +111,10 @@ public class PriorityQueueSorted implements IPriorityQueue {
 		}
 
 		// Insert beyond tail
-		if (qe.priority > pre.priority) {
+		//if (qe.priority >= pre.priority) {
 			pre.next = qe;
 			qe.next = null;
-		}
+		//}
 		
 		if(removed){
 			return false;
