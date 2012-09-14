@@ -227,9 +227,11 @@ L_l86_i1_g177 Skip() exit_data
 
 exit_zero Skip() exit
 exit_data Skip() set_null_r0
-set_null_r0 Set_Null_L(r0) set_null_r2
+set_null_r0 Set_Null_L(r0) set_null_r1
+set_null_r1 Set_Null_L(r1) set_null_r2
 set_null_r2 Set_Null_L(r2) set_null_r3
-set_null_r3 Set_Null_L(r3) exit_data2
+set_null_r3 Set_Null_L(r3) set_null_$r11
+set_null_$r11 Set_Null_L($r11) exit_data2
 exit_data2 Skip() exit
 
 
