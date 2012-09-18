@@ -29,7 +29,7 @@ L_l28_g43 Skip() L_l28_g44
 
 // line 28 : return 0 (ReturnStmt)
 L_l28_g44 Skip() L_l28_i1_g71
-L_l28_i1_g71 Skip() exit_false
+L_l28_i1_g71 Skip() exit_zero
 
 
 // line 31 : maxPrio = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
@@ -89,12 +89,12 @@ L_l42_g60 Skip() L_l42_g61
 
 // line 42 : return $i2 (ReturnStmt)
 L_l42_g61 Skip() L_l42_i1_g92
-L_l42_i1_g92 Skip() exit_true
+L_l42_i1_g92 Skip() exit_data
 
 
 
-exit_true Skip() exit
-exit_false Skip() exit
+exit_data Skip() exit
+exit_zero Skip() exit
 
 //exit Assert_ListInvariants($this) error
 //exit Assert_No_Leak($this)        error
