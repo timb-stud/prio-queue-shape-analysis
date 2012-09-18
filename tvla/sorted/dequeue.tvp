@@ -87,11 +87,11 @@ L_l33_g72 Skip() L_l33_g73
 
 // line 33 : return $i0 (ReturnStmt)
 L_l33_g73 Skip() L_l33_i1_g104
-L_l33_i1_g104 Skip() exit_$i0
+L_l33_i1_g104 Skip() exit_data
 
 
 exit_zero Skip() exit
-exit_$i0 Skip() exit
+exit_data Skip() exit
 
 //%%
 
