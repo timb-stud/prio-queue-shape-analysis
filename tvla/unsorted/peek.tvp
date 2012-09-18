@@ -1,7 +1,7 @@
 ///////
 // Sets
 
-%s PVar {$r1, $r6, $r7, $r8, $r9, $parameter0, $this, $return, z0, z1, $i2, $i3, $i4, $parameter0, $parameter1, $return, i0, i1, r0, r1, r2, r3, r4, r5, $r2, $r3, $r4, $r5, n0}
+%s PVar {$r1, $r6, $r7, $r8, $r9, $parameter0, $this, $return, z0, z1, $i2, $i3, $i4, $parameter0, $parameter1, $return, i0, i1, r0, maxPrio, r2, r3, r4, r5, $r2, $r3, $r4, $r5, n0}
 
 #include "peek_predicates.tvp"
 
@@ -17,7 +17,7 @@ L_lx_g39 Copy_Var_L(r0, $this) L_l27_g40
 // line 27 : $r3 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l27_g40 Get_head($r3, r0) L_l27_g41
 
-// line 27 : if $r3 != null goto r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (IfEqualToNullStmt)
+// line 27 : if $r3 != null goto maxPrio = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (IfEqualToNullStmt)
 L_l27_g41 Is_Null_Var($r3) L_l27_g42
 L_l27_g41 Is_Not_Null_Var($r3) L_l31_g45
 
@@ -32,9 +32,9 @@ L_l28_g44 Skip() L_l28_i1_g71
 L_l28_i1_g71 Skip() exit_false
 
 
-// line 31 : r1 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
+// line 31 : maxPrio = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l31_g45 Set_Null_L($r3) L_l31_g45a
-L_l31_g45a Get_head(r1, r0) L_l33_g46
+L_l31_g45a Get_head(maxPrio, r0) L_l33_g46
 
 // line 33 : $r4 = r0.<de.htw.PriorityQueueUnsorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
 L_l33_g46 Get_head($r4, r0) L_l33_g47
@@ -54,17 +54,16 @@ L_l34_g50 Skip() L_l34_g56
 // line 35 : $i0 = r2.<de.htw.QueueElement: int priority> (AssignStmt)
 L_l35_g51 Skip() L_l35_g52
 
-// line 35 : $i1 = r1.<de.htw.QueueElement: int priority> (AssignStmt)
+// line 35 : $i1 = maxPrio.<de.htw.QueueElement: int priority> (AssignStmt)
 L_l35_g52 Skip() L_l35_g53
 
 // line 35 : if $i0 >= $i1 goto r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (IfStmt)
 // maxPrio.priority > current.priority
-L_l35_g53 Less_Equal_Priority_L(r1, r2) L_l39_g55
-L_l35_g53 Greater_Priority_L(r1, r2) L_l36_g54
+L_l35_g53 Less_Equal_Priority_L(maxPrio, r2) L_l39_g55
+L_l35_g53 Greater_Priority_L(maxPrio, r2) L_l36_g54
 
-// line 36 : r1 = r2 (AssignRefToRefStmt)
-L_l36_g54 Copy_Var_L(r1, r2) L_l36_g54a
-L_l36_g54a Set_maxPrio(r1) L_l39_g55
+// line 36 : maxPrio = r2 (AssignRefToRefStmt)
+L_l36_g54 Copy_Var_L(maxPrio, r2) L_l39_g55
 
 // line 39 : r2 = r2.<de.htw.QueueElement: de.htw.QueueElement next> (AssignInstanceFieldRefToRefStmt)
 L_l39_g55 Get_next(r2, r2) L_l34_g56
@@ -77,13 +76,13 @@ L_l34_g56 Is_Not_Null_Var(r2) L_l35_g51
 L_l41_g57 Set_Null_L(n0) L_l42_g57a
 
 //set returnedElement predicate
-L_l42_g57a Set_returnedElement(r1) L_l42_g58
+L_l42_g57a Set_returnedElement(maxPrio) L_l42_g58
 
-// line 42 : $i2 = r1.<de.htw.QueueElement: int data> (AssignStmt)
+// line 42 : $i2 = maxPrio.<de.htw.QueueElement: int data> (AssignStmt)
 L_l42_g58 Skip() L_l42_g59
 
-// line 42 : r1 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l42_g59 Skip() L_l42_g60 //Modified from Set_Null_L(r1) to Skip()
+// line 42 : maxPrio = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
+L_l42_g59 Skip() L_l42_g60 //Modified from Set_Null_L(maxPrio) to Skip()
 
 // line 42 : $return = $i2 [J2TVLA callee return assignment] (AssignStmt)
 L_l42_g60 Skip() L_l42_g61

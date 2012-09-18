@@ -7,8 +7,6 @@
 	t[n] = {queue->queue, queue->head, queue->tail, head->head, head->tail, tail->tail:1/2}
 	r[n,$this] = {queue, head, tail}
 	peq = {queue->queue, head->head, tail->tail:1/2}
-	maxPrio={head}
-
 	ple = {queue->queue, queue->head, queue->tail, tail->tail:1/2, tail->head:1/2, tail->queue:1/2, head->tail:1/2, head->head:1/2, head->queue:1/2}
 
 }

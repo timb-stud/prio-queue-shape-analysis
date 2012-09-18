@@ -44,7 +44,6 @@ foreach (z in PVar) {
 
 //new predicates
 %p returnedElement(v)
-%p maxPrio(v)
 
 /////////////////////////////////////
 // Predicates related to numeric data for priorities
