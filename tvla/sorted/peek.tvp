@@ -63,11 +63,11 @@ L_l19_g49 Skip() L_l19_g50
 
 // line 19 : return $i0 (ReturnStmt)
 L_l19_g50 Skip() L_l19_i1_g70
-L_l19_i1_g70 Skip() exit_$i0
+L_l19_i1_g70 Skip() exit_data
 
 
 exit_zero Skip() exit
-exit_$i0 Skip() exit
+exit_data Skip() exit
 
 //exit Assert_ListInvariants($this) error
 //exit Assert_No_Leak($this)        error
