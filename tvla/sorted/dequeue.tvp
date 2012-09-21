@@ -55,13 +55,15 @@ L_l28_g62 Get_next($r4, r1) L_l28_g63
 
 // line 28 : r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> = $r4 (AssignRefToInstanceFieldRefStmt)
 L_l28_g63 Set_head_Null(r0) L_l28_i1_g91
-L_l28_i1_g91  Set_head(r0, $r4) L_l29_g66
+L_l28_i1_g91  Set_head(r0, $r4) L_l28_g64
 
 // line 28 : $r4 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l28_g64 Set_Null_L($r4) L_l28_g65
+//L_l28_g64 Set_Null_L($r4) L_l28_g65
+L_l28_g64 Skip() L_l28_g65
 
 // line 28 : r0 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l28_g65 Set_Null_L(r0) L_l29_g66
+//L_l28_g65 Set_Null_L(r0) L_l29_g66
+L_l28_g65 Skip() L_l29_g66
 
 // line 29 : r1.<de.htw.QueueElement: de.htw.QueueElement next> = null (AssignNullToInstanceFieldRefStmt)
 L_l29_g66 Set_next_Null(r1) L_l29_g67
