@@ -79,7 +79,6 @@ foreach (z in PVar) {
 // and together with the functional properties above (transitive and reflezive)
 // we get that dle is a total order.
 %r !ple(v_1, v_2) ==> ple(v_2, v_1) //%r !ple(v_1, v_2) ==> plt(v_2, v_1)
-%r inOrder[ple,n](v_1) & inOrder[ple,n](v_2) & t[n](v_1, v_2) ==> ple(v_1, v_2)
 
 // The predicate or[n,z,l] is used to take a snapshot of the part of the
 // heap reachable from pointer variable z via dereferences of field n
