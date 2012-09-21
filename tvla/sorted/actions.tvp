@@ -147,8 +147,6 @@
            "A cycle may be introduced\nby assignment " + lhs + "->" + n + "=" + rhs
   {
     n(v_1, v_2) = n(v_1, v_2) | lhs(v_1) & rhs(v_2)
-	inOrder[ple,n](v) = (inOrder[ple,n](v) & !lhs(v)) | (E(u) lhs(v) & rhs(u) & ple(v,u)) | A(t) !n(v,t)
-	inROrder[ple,n](v) = (inROrder[ple,n](v) & !lhs(v)) | (E(u) lhs(v) & rhs(u) & ple(u,v)) | A(t) !n(v,t)
   }
 }
 
