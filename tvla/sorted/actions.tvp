@@ -145,6 +145,8 @@
            "Internal Error! " + lhs + "->" + n + " != NULL"
   %message (E(v_1, v_2) lhs(v_1) & rhs(v_2) & t[n](v_2, v_1)) -> 
            "A cycle may be introduced\nby assignment " + lhs + "->" + n + "=" + rhs
+  %message (!E(v) lhs(v)) -> "Illegal dereference to\n" +
+                             n + " component of " + lhs
   {
     n(v_1, v_2) = n(v_1, v_2) | lhs(v_1) & rhs(v_2)
   }
@@ -161,6 +163,8 @@
            "Internal Error! " + lhs + "->" + n + " != NULL"
   %message (E(v_1, v_2) lhs(v_1) & rhs(v_2) & t[n](v_2, v_1)) -> 
            "A cycle may be introduced\nby assignment " + lhs + "->" + n + "=" + rhs
+  %message (!E(v) lhs(v)) -> "Illegal dereference to\n" +
+                             n + " component of " + lhs
   {
     n(v_1, v_2) = n(v_1, v_2) | lhs(v_1) & rhs(v_2)
   }
