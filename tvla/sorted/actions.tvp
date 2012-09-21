@@ -287,7 +287,7 @@
            "Illegal dereference to priority component of " + lhs
     {
 		peq(v_1, v_2) = peq(v_1, v_2) | lhs(v_1) & rhs(v_2)
-		//ple(v_1, v_2) = ple(v_1, v_2) | lhs(v_1) & rhs(v_2)
+		ple(v_1, v_2) = ple(v_1, v_2) | (lhs(v_1) & rhs(v_2) | lhs(v_2) & rhs(v_1)) & v_1 != v_2
 	}
 }
 
