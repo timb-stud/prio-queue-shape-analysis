@@ -65,8 +65,8 @@ public class PriorityQueueSorted implements IPriorityQueue {
 
 		// Override head data
 		if (head.data == qe.data) {
-			head.priority = priority; //update set_priority action
-			return false;
+			head = head.next;
+			removed = true;
 		}
 
 		//Remove item with equal data
