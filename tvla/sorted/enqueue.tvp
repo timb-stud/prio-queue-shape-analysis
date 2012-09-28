@@ -4,7 +4,7 @@
 %s PVar {$r1, $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r20, $r5, $r6, $r7, 
     $r8, $r9, $parameter0, $this, $return, z0, $i2, $i3, 
     $i4, $i5, $i6, $i7, $i8, $parameter0, $parameter1, 
-    $return, i0, i1, r0, r19, r2, r21, r3, r4}
+    $return, i0, i1, r0, r19, r2, r21, r3, r4, headNext, head}
 
 #include "enqueue_predicates.tvp"
 
@@ -97,7 +97,8 @@ L_l51_g105 Set_Null_L($r6) L_l51_g106
 L_l51_g106 Is_Null_Var($r7) L_l51_g106a
 L_l51_g106 Is_Not_Null_Var($r7) L_l51_g106b
 L_l51_g106a Set_Null_L($r7) L_l51_g107
-L_l51_g106b Set_Null_L($r7) L_l67_g136
+//L_l51_g106b Set_Null_L($r7) L_l67_g136
+L_l51_g106b Skip() L_l67_g136
 
 // line 51 : $r7 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
 L_l51_g107 Skip() L_l52_g108
@@ -225,18 +226,25 @@ L_l68_g141 Skip() L_l68_g142
 
 // line 68 : $r14.<de.htw.QueueElement: int priority> = i1 (AssignStmt)
 //L_l68_g142 Set_priority($r14, i1) L_l68_g143
-L_l68_g142 Set_priority($r13, i1) L_l68_g143
+//L_l68_g142 Set_priority($r13, i1) L_l68_g143
 //L_l68_g142a Set_priority(i1, $r13) L_l68_g143
+L_l68_g142 	Get_head(head, r0) 			L_l68_g142a
+L_l68_g142a Get_next(headNext, head) 	L_l68_g142b
+L_l68_g142b Set_next_Null(head) 		L_l68_g142c
+L_l68_g142c Set_head_Null(r0) 			L_l68_g142d
+L_l68_g142d Set_head(r0, headNext) 		L_l68_g142e
+L_l68_g142e Set_removed_True(head) 		L_l73_g146
+
 
 // line 68 : $r14 = null [J2TVLA reset dead local reference assignment] (AssignNullToLocalStmt)
-L_l68_g143 Skip() L_l69_g144
+//L_l68_g143 Skip() L_l69_g144
 
 // line 69 : $return = 0 [J2TVLA callee return assignment] (AssignStmt)
-L_l69_g144 Skip() L_l69_g145
+//L_l69_g144 Skip() L_l69_g145
 
 // line 69 : return 0 (ReturnStmt)
-L_l69_g145 Skip() L_l69_i1_g293
-L_l69_i1_g293 Skip() exit_false
+//L_l69_g145 Skip() L_l69_i1_g293
+//L_l69_i1_g293 Skip() exit_false
 
 
 // line 73 : r3 = r0.<de.htw.PriorityQueueSorted: de.htw.QueueElement head> (AssignInstanceFieldRefToRefStmt)
@@ -468,7 +476,8 @@ L_l122_i1_g387 Skip() exit_true
 exit_true Skip() set_null_r0
 set_null_r0 Set_Null_L(r0) set_null_r3
 //set_null_r2 Set_Null_L(r2) set_null_r3
-set_null_r3 Set_Null_L(r3) set_null_$r17
+set_null_r3 Set_Null_L(r3) set_null_$r7
+set_null_$r7 Set_Null_L($r7) set_null_$r17
 set_null_$r17 Set_Null_L($r17) set_null_$r18
 set_null_$r18 Set_Null_L($r18) set_null_r19
 set_null_r19 Set_Null_L(r19) exit_true2
@@ -477,11 +486,15 @@ set_null_r19 Set_Null_L(r19) exit_true2
 exit_false Skip() set_null_r0b
 set_null_r0b Set_Null_L(r0) set_null_r3b
 //set_null_r2b Set_Null_L(r2) set_null_r3b
-set_null_r3b Set_Null_L(r3) set_null_$r16b
-//set_null_$r13b Set_Null_L($r13) set_null_$r16b
+set_null_r3b Set_Null_L(r3) set_null_r4b
+set_null_r4b Set_Null_L(r4) set_null_$r13b
+set_null_$r13b Set_Null_L($r13) set_null_$r16b
 set_null_$r16b Set_Null_L($r16) set_null_$r17b
 set_null_$r17b Set_Null_L($r17) set_null_$r18b
-set_null_$r18b Set_Null_L($r18) set_null_r19b
+set_null_$r18b Set_Null_L($r18) set_null_$r7b
+set_null_$r7b Set_Null_L($r7) set_null_head
+set_null_head Set_Null_L(head) set_null_headNext
+set_null_headNext Set_Null_L(headNext) set_null_r19b
 set_null_r19b Set_Null_L(r19) exit_false2
 
 
