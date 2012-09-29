@@ -1,0 +1,24 @@
+#! /bin/sh
+
+# Customize these 2 variables!!!
+J2TVLA_HOME=~/Development/j2tvla/
+JAVA_HOME=/Library/Java/Home
+
+
+SOOT_CLASSES=$J2TVLA_HOME/lib/soot-2.1.0/soot-2.1.0/classes
+JASMIN_CLASSES=$J2TVLA_HOME/lib/jasmin-sable-1.2.7/classes
+SOOT_ARGS="-app -w -keep-line-number -f jimple"
+JAVA_CLASSES=$JAVA_HOME/bundle/Classes/classes.jar
+JAVA_JCE=$JAVA_HOME/lib/jce.jar
+JAVA_DT=$JAVA_HOME/lib/dt.jar
+JAVA_DEPLOY=$JAVA_HOME/lib/deploy.jar
+JAVA_WS=$JAVA_HOME/lib/javaws.jar
+JAVA_SA_JDI=$JAVA_HOME/lib/sa-jdi.jar
+
+export CLASSPATH=$CLASSPATH:$J2TVLA_HOME/build:$SOOT_CLASSES:$JASMIN_CLASSES:.:$JAVA_CLASSES:$JAVA_JCE:$JAVA_DT:$JAVA_DEPLOY:$JAVA_WS:$JAVA_SA_JDI
+
+echo $CLASSPATH
+
+#java soot.Main
+#java j2tvla.Main
+java -Dj2tvla.home="$J2TVLA_HOME" j2tvla.Main $SOOT_ARGS $1
